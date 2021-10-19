@@ -1,6 +1,6 @@
 <% if admin_signed_in? %>
   <div><%= link_to "items", admin_items_path %></div>
-  <div><%= link_to "customers", admin_customers_path %></div> <!--Load Error 修正忘れずに-->
+  <div><%= link_to "customers", admin_customers_path %></div>
   <div><h1>SAGO_PLANTS</h1></div>
   <div><%= link_to "orders", admin_path %></div>
   <div><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></div>
