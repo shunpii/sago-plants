@@ -1,2 +1,49 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<h1>カート</h1>
+
+<% if @cart_items.exists? %>
+  <%= link_to "カート内削除", cart_items_destroy_all_path, method: :delete %>
+<% end %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>サイズ</th>
+      <th>税込価格</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sum = 0 %>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= attachment_image_tag cart_item.item, :image, size: "200x200" %> <%= cart_item.item.name %></td>
+        <td>H : <%= cart_item.item.size_height %> W : <%= cart_item.item.size_width %></td>
+        <td>¥<%= cart_item.item.price %></td>
+        <td><%= link_to "削除", cart_item_path(cart_item.id), method: :delete %></td>
+      </tr>
+    <% @sum += cart_item.item.price %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "商品を見る", root_path %>
+
+<table>
+  <tbody>
+    <tr>
+      <th>合計金額</th>
+      <td>
+        <% if @cart_items.exists? %>
+          <%= @sum %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<% if @cart_items.exists? %>
+  <%= link_to "購入する", new_order_path %>
+<% end %>
+

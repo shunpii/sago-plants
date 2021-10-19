@@ -1,0 +1,13 @@
+<% if admin_signed_in? %>
+  <div><%= link_to "items", admin_items_path %></div>
+  <div><%= link_to "customers", admin_customers_path %></div> <!--Load Error 修正忘れずに-->
+  <div><h1>SAGO_PLANTS</h1></div>
+  <div><%= link_to "orders", admin_path %></div>
+  <div><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></div>
+<% else %>
+  <div><%= link_to "HOME", root_path %></div>
+  <div><%= link_to "ABOUT", homes_about_path %></div>
+  <div><h1>SAGO_PLANTS</h1></div>
+  <div><%= link_to "ログイン", new_customer_session_path %></div>
+  <div><%= link_to "新規登録", new_customer_registration_path %></div>
+<% end %>

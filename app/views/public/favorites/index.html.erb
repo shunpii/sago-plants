@@ -1,2 +1,29 @@
-<h1>Public::Favorites#index</h1>
-<p>Find me in app/views/public/favorites/index.html.erb</p>
+<h1>お気に入り</h1>
+
+<% if @favorites.exists? %>
+  <%= link_to "お気に入り全て削除", favorites_destroy_all_path, method: :delete %>
+<% end %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>サイズ</th>
+      <th>税込価格</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= attachment_image_tag favorite.item, :image, size: "200x200" %> <%= favorite.item.name %></td> <
+        <td>H : <%= favorite.item.size_height %> W : <%= favorite.item.size_width %></td>
+        <td>¥<%= favorite.item.price %></td>
+        <td><%= link_to "お気に入りをやめる", favorite_path(favorite.id), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "商品を見る", root_path %>
