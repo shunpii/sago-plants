@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-  end
+  devise_for :customers
+  devise_for :admins
   namespace :public do
     get 'orders/new'
     get 'orders/index'
