@@ -1,45 +1,37 @@
 Rails.application.routes.draw do
-  devise_for :customers
-  devise_for :admins
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-    get 'orders/complete'
+  devise_for :customers, path: "customer", controllers: {
+    registrations: "customers/registrations",
+    sessions: "customers/sessions"
+  }
+
+  devise_for :admins, path: "admin", controllers: {
+    registrations: 'admins/registrations',
+    sessions: 'admins/sessions'
+  }
+
+  namespace :admin do
+    get '', :to => 'homes#top'
+    resources :items
+    resources :customers, only:[:index, :show, :edit, :update]
+    resources :orders, only:[:show, :update]
   end
-  namespace :public do
-    get 'favorites/index'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :public do
-    get 'items/show'
-  end
-  namespace :public do
-    get 'homes/top'
+
+  scope module: :public do
+    root to: 'homes#top'
     get 'homes/about'
+    get 'customers/confirm'
+    patch 'customers/withdrawal'
+    delete 'cart_items/destroy_all'
+    delete 'favorites/destroy_all'
+    post 'orders/confirm'
+    get 'orders/complete'
+    resources :items, only:[:show]
+    resource :customers, only:[:show, :edit, :update]
+    resources :cart_items, only:[:index, :destroy, :create]
+    resources :favorites, only:[:index, :destroy, :create]
+    resources :orders, only:[:new, :create, :index, :show]
+    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
   end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :admin do
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/new'
-    get 'items/edit'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
