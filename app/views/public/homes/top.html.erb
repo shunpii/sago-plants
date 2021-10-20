@@ -1,13 +1,13 @@
 <div class="tp-item-list">
   <% @items.each do |item| %>
-    <%= link_to admin_item_path(item.id) do %>
-      <div class="tp-item-text">
+    <div class="tp-item-text">
+      <%= link_to admin_item_path(item.id) do %>
         <%= link_to item_path(item.id) do %>
           <div><%= attachment_image_tag item, :image, size: "550x500",　format: 'jpeg' %></div>
           <div><%= item.name %></div>
           <div><%= item.price %>円</div>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
 </div>
