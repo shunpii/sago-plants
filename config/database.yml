@@ -31,3 +31,4 @@ production:
   host: <%= ENV['rds-mysql-server.cphjm4pmsfnw.us-east-1.rds.amazonaws.com'] %>
   username: <%= ENV['sago'] %>
   password: <%= ENV['shunya029'] %>
+  socket: /var/lib/mysql/mysql.sockgit 
