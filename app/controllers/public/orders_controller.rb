@@ -29,9 +29,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    @order.save
+    @order.save!
+    #binding.pry
     @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item| #注文履歴を表示させる為に必要
       @order_details = OrderDetail.new

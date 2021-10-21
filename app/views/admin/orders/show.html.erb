@@ -23,11 +23,13 @@
       <td><%= @order.payment_method %></td>
     </tr>
     <tr>
-      <%= form_with model: @order, url: admin_order_path, local:true do |f| %>
-        <th>注文ステータス</th>
-        <td><%= f.select :status, Order.statuses.keys.to_a,{} %></td>
-        <td><%= f.submit "更新" %></td>
-      <% end %>
+      <th>注文ステータス</th>
+      <td>
+        <%= form_with model: @order, url: admin_order_path, local:true do |f| %>
+          <%= f.select :status, Order.statuses.keys.to_a,{} %><!--ステータスを表示させる-->
+          <%= f.submit "更新" %>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 </table>

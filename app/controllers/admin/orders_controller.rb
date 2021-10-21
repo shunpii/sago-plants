@@ -5,6 +5,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
+    #binding.pry
     @order = Order.find(params[:id])
     @order.update(order_params)
     redirect_to admin_path

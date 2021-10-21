@@ -3,12 +3,6 @@ class Order < ApplicationRecord
   has_many :order_details
 
 
-  validates :postal_code, presence: true
-  validates :name, presence: true
-  validates :shipping_cost, presence: true
-  validates :total_payment, presence: true
-  validates :payment_method, inclusion: {in: [0, 1]}
-  validates :address, inclusion: {in: [0, 1, 2]}
 
   enum payment_method: {
     クレジットカード: 0,
