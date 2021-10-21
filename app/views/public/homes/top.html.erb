@@ -4,7 +4,13 @@
       <%= link_to item_path(item.id) do %>
         <div><%= attachment_image_tag item, :image, size: "550x500",　format: 'jpeg' %></div>
         <div><%= item.name %></div>
-        <div><%= item.price %>円</div>
+        <div>
+          <% if item.order_details.present? %>
+            Sold Out!!
+          <% else %>
+            <%= item.price %>円
+          <% end %>
+        </div>
       <% end %>
     </div>
   <% end %>

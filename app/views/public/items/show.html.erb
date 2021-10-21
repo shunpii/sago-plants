@@ -35,9 +35,13 @@
       <tr>
         <th></th>
         <td>
-          <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
-            <%= f.hidden_field :item_id, :value => @item.id %>
-            <%= f.submit "カートに入れる" %>
+          <% if @item.order_details.present? %>
+            Sold Out!!
+          <% else %>
+            <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.submit "カートに入れる" %>
+            <% end %>
           <% end %>
         </td>
       </tr>
