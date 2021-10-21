@@ -45,4 +45,11 @@
 
 <%= link_to "編集", edit_admin_customer_path(@customer) %>
 
-<%= link_to "注文履歴一覧を見る", admin_order_path %>
+
+
+<!--注文履歴があればリンクの表示,ない場合はリンクなし-->
+<% if @customer.orders.present? %>
+  <%= link_to "注文履歴一覧を見る", admin_order_path %>
+<% else %>
+  注文履歴なし
+<% end %>
