@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'inquiry/index' =>'inquiry#index'
+  post 'inquiry/confirm' =>'inquiry#confirm'
+  post 'inquiry/complete' =>'inquiry#complete'
   devise_for :customers, path: "customer", controllers: {
     registrations: "customers/registrations",
     sessions: "customers/sessions"
