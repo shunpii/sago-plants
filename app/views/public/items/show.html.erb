@@ -1,5 +1,7 @@
 <div class="item">
-  <%= attachment_image_tag @item, :image, size: "400x350",　format: 'jpeg' %>
+  <% @item.item_images.each do |image| %>
+    <%= attachment_image_tag image, :image, size: "400x350",　format: 'jpeg' %>
+  <% end %>
   <table class="item-unit">
     <tbody>
       <tr>

@@ -17,7 +17,12 @@
   <tbody>
     <% @favorites.each do |favorite| %>
       <tr>
-        <td><%= attachment_image_tag favorite.item, :image, size: "200x200" %> <%= favorite.item.name %></td> <
+        <td>
+          <% favorite.item.item_images.first(1).each do |image| %>
+            <%= attachment_image_tag image, :image, size: "200x200" %>
+          <% end %>
+          <%= favorite.item.name %>
+          </td>
         <td>H : <%= favorite.item.size_height %> W : <%= favorite.item.size_width %></td>
         <td>¥<%= favorite.item.price %></td>
         <td><%= link_to "お気に入りをやめる", favorite_path(favorite.id), method: :delete %></td>

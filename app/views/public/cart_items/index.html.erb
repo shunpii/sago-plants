@@ -18,7 +18,12 @@
     <% @sum = 0 %>
     <% @cart_items.each do |cart_item| %>
       <tr>
-        <td><%= attachment_image_tag cart_item.item, :image, size: "200x200" %> <%= cart_item.item.name %></td>
+        <td>
+          <% cart_item.item.item_images.first(1).each do |image| %>
+            <%= attachment_image_tag image, :image, size: "200x200" %>
+          <% end %>
+            <%= cart_item.item.name %>
+        </td>
         <td>H : <%= cart_item.item.size_height %> W : <%= cart_item.item.size_width %></td>
         <td>¥<%= cart_item.item.price %></td>
         <td><%= link_to "削除", cart_item_path(cart_item.id), method: :delete %></td>

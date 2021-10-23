@@ -2,7 +2,11 @@
   <% @items.each do |item| %>
     <div class="tp-item-text">
       <%= link_to item_path(item.id) do %>
-        <div><%= attachment_image_tag item, :image, size: "550x500",　format: 'jpeg' %></div>
+        <div>
+          <% item.item_images.first(1).each do |image| %>
+            <%= attachment_image_tag image, :image, size: "550x500",　format: 'jpeg' %>
+          <% end %>
+        </div>
         <div><%= item.name %></div>
         <div>
           <% if item.order_details.present? %>
