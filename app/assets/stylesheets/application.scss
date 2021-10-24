@@ -29,9 +29,18 @@
   text-align: center;
 }
 
-.header-item-list {
+.header-item-list, .header-item-icon {
   display: flex;
   list-style: none;
+}
+
+.header-item-icon {
+  justify-content: flex-end;
+}
+
+.header-item-icon-list {
+  margin: 5px 20px 0;
+  font-size: 25px;
 }
 
 .header-item-list-title {
@@ -40,13 +49,11 @@
 }
 
 footer {
-  height: 80px;
-  display: flex;
-  justify-content: flex-end;
+  height: 100px;
 }
 
 .footer-item {
-  margin: 50px 50px;
+  margin: 50px;
 }
 
 

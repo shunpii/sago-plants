@@ -1,13 +1,28 @@
 <% if customer_signed_in? %>
+
   <div class="header-item">
+    <ul class="header-item-icon">
+      <li class="header-item-icon-list">
+        <%= link_to customers_path do %>
+          <i class="fas fa-user"></i>
+        <% end %>
+      </li>
+      <li class="header-item-icon-list">
+        <%= link_to favorites_path do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      </li>
+      <li class="header-item-icon-list">
+        <%= link_to cart_items_path do %>
+          <i class="fas fa-shopping-cart"></i>
+        <% end %>
+      </li>
+    </ul>
     <div class="header-item-image"><%= image_tag 'header.jpeg', :size => "500x250" %></div>
     <div>
       <ul class="header-item-list">
         <li class="header-item-list-title"><%= link_to "HOME", root_path %></li>
         <li class="header-item-list-title"><%= link_to "ABOUT", homes_about_path %></li>
-        <li class="header-item-list-title"><%= link_to "マイページ", customers_path %></li>
-        <li class="header-item-list-title"><%= link_to "お気に入り", favorites_path %></li>
-        <li class="header-item-list-title"><%= link_to "カート", cart_items_path %></li>
         <li class="header-item-list-title"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
       </ul>
     </div>
