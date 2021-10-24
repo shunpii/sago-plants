@@ -1,24 +1,6 @@
 <h1>配送先登録/一覧</h1>
 
-<%= form_with model: @address, url: addresses_path, local:true do |f| %>
-  <table>
-    <tbody>
-      <tr>
-        <th>郵便番号(ハイフンなし)</th>
-        <td><%= f.text_field :postal_code %></td>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <td><%= f.text_field :address %></td>
-      </tr>
-      <tr>
-        <th>宛名</th>
-        <td><%= f.text_field :name %></td>
-      </tr>
-    </tbody>
-  </table>
-  <%= f.submit "登録" %>
-<% end %>
+<%= render 'list', address: @address %>
 
 <table>
   <thead>
