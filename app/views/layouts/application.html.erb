@@ -25,6 +25,8 @@
   </body>
 
   <footer>
-    <div class="footer-item"><%= link_to "お問い合わせ", inquiry_index_path %></div>
+    <% if customer_signed_in? %>
+      <div class="footer-item"><%= link_to "お問い合わせ", inquiry_index_path %></div>
+    <% end %>
   </footer>
 </html>
