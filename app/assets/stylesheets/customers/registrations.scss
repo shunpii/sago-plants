@@ -1,16 +1,21 @@
+.sign_up-title {
+  margin-left: 30%;
+}
 
-.customer-login-list {
+.sign_up-list {
   margin: auto;
 }
 
-.customer-login-title {
-  margin-left: 35%;
+.sign_up-item {
+  padding: 5px 10px 5px 5px;
+  text-align: left;
 }
 
-.customer-login-list-item, .login-actions {
-  padding: 10px 0;
-}
-
-.login-actions {
+.sign_up-action {
   text-align: center;
+  margin-right: 150px;
+}
+
+.sign_up-btn {
+  width: 100px;
 }
