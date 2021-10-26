@@ -1,25 +1,21 @@
-<h2 class="title">ログイン</h2>
+<h2 class="admin-title">ログイン</h2>
 
-  <%= form_with model:@admin, url: admin_session_path, local: true do |f| %>
-    <table class="list">
-      <tbody>
-        <tr>
-          <th class="list-title">名前</th>
-          <td><%= f.text_field :name %></td>
-        </tr>
-        <tr>
-          <th class="list-title">メールアドレス</th>
-          <td><%= f.email_field :email %></td>
-        </tr>
-        <tr>
-          <th class="list-title">パスワード</th>
-          <td><%= f.password_field :password %></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="actions">
-      <%= f.submit "ログイン", class: "action" %>
-    </div>
-  <% end %>
-</div>
+<%= form_with model:@admin, url: admin_session_path, local: true do |f| %>
+  <table class="admin-list">
+    <tr>
+      <th class="admin-list-item">名前</th>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <th class="admin-list-item">メールアドレス</th>
+      <td><%= f.email_field :email %></td>
+    </tr>
+    <tr>
+      <th class="admin-list-item">パスワード</th>
+      <td><%= f.password_field :password %></td>
+    </tr>
+  </table>
+  <div class="admin-action">
+    <%= f.submit "ログイン", class: "admin-btn" %>
+  </div>
+<% end %>
