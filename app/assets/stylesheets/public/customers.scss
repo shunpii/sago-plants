@@ -1,3 +1,27 @@
 // Place all the styles related to the public/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mypage-title {
+  margin-left: 25%;
+}
+
+.mypage-subtitle, .mypage-list {
+  margin-left: 30%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mypage-subtitle {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mypage-list-item {
+  text-align: left;
+  padding: 10px 30px 10px 10px;
+}
+
+.mypage-subtitle-action {
+  margin-left: 20px;
+}

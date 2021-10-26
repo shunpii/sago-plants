@@ -1,39 +1,44 @@
-<h1>マイページ</h1>
+<h1 class="mypage-title">マイページ</h1>
 
-<h3>登録情報</h3>
-<%= link_to "編集", edit_customers_path %>
+<div class="mypage-subtitle">
+    <h3 class="mypage-subtitle-item">登録情報</h3>
+    <div class="mypage-subtitle-action"><%= link_to "編集", edit_customers_path %></div>
+</div>
 
-<table>
-    <tbody>
-         <tr>
-            <th>氏名</th>
-            <td><%= @customer.first_name %> <%= @customer.last_name %></td>
-        </tr>
-        <tr>
-            <th>カナ</th>
-            <td><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
-        </tr>
-        <tr>
-            <th>郵便番号</th>
-            <td><%= @customer.postal_code %></td>
-        </tr>
-        <tr>
-            <th>住所</th>
-            <td><%= @customer.address %></td>
-        </tr>
-        <tr>
-            <th>電話番号</th>
-            <td><%= @customer.telephone_number %></td>
-        </tr>
-        <tr>
-            <th>メールアドレス</th>
-            <td><%= @customer.email %></td>
-        </tr>
-  </tbody>
+
+<table class="mypage-list">
+    <tr>
+        <th class="mypage-list-item">氏名</th>
+        <td><%= @customer.first_name %> <%= @customer.last_name %></td>
+    </tr>
+    <tr>
+        <th class="mypage-list-item">カナ</th>
+        <td><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
+    </tr>
+    <tr>
+        <th class="mypage-list-item">郵便番号</th>
+        <td><%= @customer.postal_code %></td>
+    </tr>
+    <tr>
+        <th class="mypage-list-item">住所</th>
+        <td><%= @customer.address %></td>
+    </tr>
+    <tr>
+        <th class="mypage-list-item">電話番号</th>
+        <td><%= @customer.telephone_number %></td>
+    </tr>
+    <tr>
+        <th class="mypage-list-item">メールアドレス</th>
+        <td><%= @customer.email %></td>
+    </tr>
 </table>
 
-<h3>配送先</h3>
-<%= link_to "一覧", addresses_path %>
+<div class="mypage-subtitle">
+    <h3 class="mypage-subtitle-item">配送先</h3>
+    <div class="mypage-subtitle-action"><%= link_to "一覧", addresses_path %></div>
+</div>
 
-<h3>注文履歴</h3>
-<%= link_to "一覧", orders_path %>
+<div class="mypage-subtitle">
+    <h3 class="mypage-subtitle-item">注文履歴</h3>
+    <div class="mypage-subtitle-action"><%= link_to "一覧", orders_path %></div>
+</div>
