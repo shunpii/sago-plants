@@ -7,12 +7,12 @@ class Public::CustomersController < ApplicationController
 
   def edit
     @customer = current_customer
-    @customer.save
   end
 
   def update
     @customer = current_customer
-    @customer.update(customer_params)
+    #binding.pry
+    @customer.update(customer_params) #updateできない
     redirect_to customers_path
   end
 

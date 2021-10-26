@@ -1,34 +1,35 @@
-<h1>会員情報編集</h1>
+<h1 class="mypage-edit-title">会員情報編集</h1>
 
-<%= form_with model:@customer, url: customers_path, local:true do |f| %>
-  <table>
-    <tbody>
-      <tr>
-        <th>氏名</th>
-        <td><%= f.text_field :first_name %> <%= f.text_field :last_name %></td>
-      </tr>
-      <tr>
-        <th>カナ</th>
-        <td><%= f.text_field :first_name_kana %> <%= f.text_field :last_name_kana %></td>
-      </tr>
-      <tr>
-        <th>郵便番号</th>
-        <td><%= f.text_field :postal_code %></td>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <td><%= f.text_field :address %></td>
-      </tr>
-      <tr>
-        <th>電話番号</th>
-        <td><%= f.text_field :telephone_number %></td>
-      </tr>
-      <tr>
-        <th>メールアドレス</th>
-        <td><%= f.email_field :email %></td>
-      </tr>
-    </tbody>
+<%= form_with model: @customer, url: customers_path, local:true do |f| %>
+  <table class="mypage-edit-list">
+    <tr>
+      <th class="mypage-edit-item">氏名</th>
+      <td><%= f.text_field :first_name %> <%= f.text_field :last_name %></td>
+    </tr>
+    <tr>
+      <th class="mypage-edit-item">カナ</th>
+      <td><%= f.text_field :first_name_kana %> <%= f.text_field :last_name_kana %></td>
+    </tr>
+    <tr>
+      <th class="mypage-edit-item">郵便番号</th>
+      <td><%= f.text_field :postal_code %></td>
+    </tr>
+    <tr>
+      <th class="mypage-edit-item">住所</th>
+      <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <th class="mypage-edit-item">電話番号</th>
+      <td><%= f.text_field :telephone_number %></td>
+    </tr>
+    <tr>
+      <th class="mypage-edit-item">メールアドレス</th>
+      <td><%= f.email_field :email %></td>
+    </tr>
   </table>
-  <%= f.submit "編集内容を保存" %>
+  <div class="mypage-edit-action">
+    <%= f.submit "保存", class: "mypage-edit-btn" %>
+    <%= link_to "退会", customers_confirm_path %>
+  </div>
 <% end %>
-<%= link_to "退会", customers_confirm_path %>
+
