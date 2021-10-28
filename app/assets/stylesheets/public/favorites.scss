@@ -1,3 +1,22 @@
 // Place all the styles related to the public/favorites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.favorite-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+.favorite-item {
+  margin: 50px;
+}
+
+.favorite-item-image {
+  margin: 0 30px 10px 40px;
+}
+
+.favorite-item-content {
+  text-align: center;
+  margin: 10px;
+}

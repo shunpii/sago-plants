@@ -1,34 +1,16 @@
-<h1>お気に入り</h1>
 
-<% if @favorites.exists? %>
-  <%= link_to "お気に入り全て削除", favorites_destroy_all_path, method: :delete %>
-<% end %>
-
-
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>サイズ</th>
-      <th>税込価格</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @favorites.each do |favorite| %>
-      <tr>
-        <td>
-          <% favorite.item.item_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, size: "200x200" %>
-          <% end %>
-          <%= favorite.item.name %>
-          </td>
-        <td>H : <%= favorite.item.size_height %> W : <%= favorite.item.size_width %></td>
-        <td>¥<%= favorite.item.price %></td>
-        <td><%= link_to "お気に入りをやめる", favorite_path(favorite.id), method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to "商品を見る", root_path %>
+<div class="favorite-list">
+  <% @favorites.each do |favorite| %>
+    <div class="favorite-item">
+      <div class="favorite-item-image">
+        <% favorite.item.item_images.first(1).each do |image| %>
+          <%= attachment_image_tag image, :image, size: "250x250" %>
+        <% end %>
+      </div>
+      <div class="favorite-item-content"><%= favorite.item.name %></div>
+      <div class="favorite-item-content">H : <%= favorite.item.size_height %> W : <%= favorite.item.size_width %></div>
+      <div class="favorite-item-content">¥<%= favorite.item.price %></div>
+      <div class="favorite-item-content"><%= link_to "お気に入り削除", favorite_path(favorite.id), method: :delete %></div>
+    </div>
+  <% end %>
+</div>
