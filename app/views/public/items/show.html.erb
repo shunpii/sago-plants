@@ -1,3 +1,5 @@
+<script src="items.js"></script>
+
 <div class="item">
   <% @item.item_images.each do |image| %>
     <%= attachment_image_tag image, :image, size: "400x350",　format: 'jpeg' %>
