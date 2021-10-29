@@ -1,3 +1,48 @@
 // Place all the styles related to the public/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2, th {
+  font-weight: normal;
+}
+
+.order-new {
+  margin-top: 50px;
+  display: flex;
+}
+
+.order-method {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.order-address-list {
+  display: flex;
+  margin-left: 40px;
+}
+
+.order-method-item {
+  margin: 20px 0 20px 40px;
+}
+
+.order-address-item {
+  margin-right: 150px;
+}
+
+.order-address-content {
+  margin: 0 20px;
+}
+
+.order-address-new {
+  text-align: left;
+  padding-right: 10px;
+}
+
+.order-action {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.address-form {
+  width: 300px;
+}
