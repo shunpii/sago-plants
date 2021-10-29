@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h2, th {
+h2, h3, th {
   font-weight: normal;
+}
+
+table {
+  border-collapse: collapse;
 }
 
 .order-new {
@@ -45,4 +49,54 @@ h2, th {
 
 .address-form {
   width: 300px;
+}
+
+
+
+.order-confirm {
+  display: flex;
+  padding-top: 70px;
+}
+
+.order-item {
+  width: 70%;
+}
+
+.order-payment-list {
+  width: 30%;
+}
+
+.order-item, .order-payment-list {
+  padding: 0 50px;
+}
+
+.item-name {
+  width: 25%;
+}
+
+.item-size, .item-price {
+  width: 15%;
+}
+
+.item-name, .item-size, .item-price, .payment-title {
+  text-align: left;
+  background-color: #eee;
+}
+
+.order-item-name, .order-item-size, .order-item-price, .payment-title, .order-payment {
+  height: 50px;
+  border-bottom: 1px solid #eee;
+}
+
+.payment-title, .order-payment {
+  width: 10%;
+}
+
+.confirm-payment_method, .confirm-address {
+  padding: 0 100px;
+}
+
+.order-confirm-action {
+  margin-top: 20px;
+  text-align: center;
 }
