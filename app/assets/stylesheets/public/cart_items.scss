@@ -1,3 +1,45 @@
 // Place all the styles related to the public/cart_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cart_item-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 50px;
+}
+
+.cart_item-item {
+  margin: 50px;
+}
+
+.cart_item-image {
+  margin: 0 30px 10px 40px;
+}
+
+.cart_item-content {
+  text-align: center;
+  margin: 10px;
+}
+
+.cart_item-payment {
+  margin: 0 150px;
+}
+
+.cart_item-action {
+  margin: 10px;
+}
+
+.cart_item-btn {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 4px;
+  background-color: #eee;
+  color: #000;
+  text-decoration: none;
+}
+
+.cart_item-coment {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 25px;
+}

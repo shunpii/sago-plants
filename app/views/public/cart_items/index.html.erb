@@ -1,54 +1,46 @@
-<h1>カート</h1>
 
-<% if @cart_items.exists? %>
-  <%= link_to "カート内削除", cart_items_destroy_all_path, method: :delete %>
-<% end %>
-
-
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>サイズ</th>
-      <th>税込価格</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @sum = 0 %>
-    <% @cart_items.each do |cart_item| %>
-      <tr>
-        <td>
-          <% cart_item.item.item_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, size: "200x200" %>
-          <% end %>
-            <%= cart_item.item.name %>
-        </td>
-        <td>H : <%= cart_item.item.size_height %> W : <%= cart_item.item.size_width %></td>
-        <td>¥<%= cart_item.item.price %></td>
-        <td><%= link_to "削除", cart_item_path(cart_item.id), method: :delete %></td>
-      </tr>
-    <% @sum += cart_item.item.price %>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to "商品を見る", root_path %>
-
-<table>
-  <tbody>
-    <tr>
-      <th>合計金額</th>
-      <td>
-        <% if @cart_items.exists? %>
-          <%= @sum %>
+<div class="cart_item-list">
+  <% @sum = 0 %>
+  <% @cart_items.each do |cart_item| %>
+    <div class="cart_item-item">
+      <div class="cart_item-image">
+        <% cart_item.item.item_images.first(1).each do |image| %>
+          <%= attachment_image_tag image, :image, size: "250x250" %>
         <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      </div>
+      <div class="cart_item-content"><%= cart_item.item.name %></div>
+      <div class="cart_item-content">H : <%= cart_item.item.size_height %>cm W : <%= cart_item.item.size_width %>cm</div>
+      <div class="cart_item-content">¥<%= cart_item.item.price %></div>
+      <div class="cart_item-content"><%= link_to "削除", cart_item_path(cart_item.id), method: :delete, class: "cart_item-btn" %></div>
+    </div>
+  <% @sum += cart_item.item.price %>
+  <% end %>
+</div>
+<div class="cart_item-payment">
+  <% if @cart_items.exists? %>
+    <table>
+      <tr>
+        <th>商品合計</th>
+        <td>
+          <% if @cart_items.exists? %>
+            ¥<%= @sum %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td class="cart_item-action"><%= link_to "購入", new_order_path, class: "cart_item-btn" %></td>
+      </tr>
+    </table>
+  <% else %>
+    <p class="cart_item-coment">カート内に商品はありません</p>
+  <% end %>
+</div>
 
-<% if @cart_items.exists? %>
-  <%= link_to "購入する", new_order_path %>
-<% end %>
+
+
+
+
+
+
 
