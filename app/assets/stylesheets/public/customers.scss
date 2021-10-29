@@ -19,11 +19,13 @@
 
 .mypage-list-item, .mypage-edit-item {
   text-align: left;
-  padding: 10px 30px 10px 10px;
+  padding: 10px;
+  width: 30%;
 }
 
 .mypage-subtitle-action {
   margin-left: 20px;
+  padding-top: 20px;
 }
 
 .mypage-edit-action, .customer-confirm {
