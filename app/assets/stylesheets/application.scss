@@ -19,6 +19,12 @@
   box-sizing: border-box;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .header-item {
   margin: 20px 50px;
 }
@@ -37,7 +43,7 @@
 }
 
 .header-item-icon-list {
-  margin: 0 20px 0;
+  margin: 0 20px;
   font-size: 25px;
 }
 
@@ -52,7 +58,7 @@
 }
 
 footer {
-  height: 100px;
+  margin-top: auto;
 }
 
 .footer-item {
