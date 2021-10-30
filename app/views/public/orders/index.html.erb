@@ -1,33 +1,26 @@
-<h1>注文履歴一覧</h1>
 
-<table>
+<table class="order_histry_list">
   <thead>
     <tr>
-      <th>注文日</th>
-      <th>配送先</th>
-      <th>注文商品</th>
-      <th>支払金額</th>
-      <th>ステータス</th>
-      <th>注文詳細</th>
+      <th class="order_histry_list-date">注文日</th>
+      <th class="order_histry_list-item">注文商品</th>
+      <th class="order_histry_list-price">支払金額</th>
+      <th class="order_histry_list-status">ステータス</th>
+      <th class="order_histry_list-details"></th>
     </tr>
   </thead>
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-        <td>
-          <%= order.postal_code %>
-          <%= order.address %>
-          <%= order.name %>
-        </td>
-        <td>
+        <td class="order_histry_list-content"><%= order.created_at.strftime('%Y/%m/%d') %></td>
+        <td class="order_histry_list-content">
           <% order.order_details.each do |order_detail| %>
-            <%= order_detail.item.name %>
+            <%= order_detail.item.name %><br>
           <% end %>
         </td>
-        <td><%= order.total_payment %></td>
-        <td><%= order.status %></td>
-        <td><%= link_to "注文詳細", order_path(order.id) %></td>
+        <td class="order_histry_list-content">¥<%= order.total_payment %></td>
+        <td class="order_histry_list-content"><%= order.status %></td>
+        <td class="order_histry_list-content"><%= link_to "注文詳細", order_path(order.id) %></td>
       </tr>
     <% end %>
   </tbody>

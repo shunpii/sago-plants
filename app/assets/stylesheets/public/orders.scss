@@ -107,3 +107,27 @@ table {
   text-align: center;
   margin-top: 50px;
 }
+
+
+
+.order_histry_list {
+  margin-left: 20%;
+}
+
+.order_histry_list {
+  margin: auto;
+}
+
+.order_histry_list-date, .order_histry_list-price, .order_histry_list-status, .order_histry_list-details {
+  width: 10%;
+  background-color: #eee;
+}
+
+.order_histry_list-item {
+  width: 30%;
+  background-color: #eee;
+}
+
+.order_histry_list-content {
+  border-bottom: 2px solid #eee;
+}
