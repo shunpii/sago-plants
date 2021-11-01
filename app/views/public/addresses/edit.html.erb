@@ -1,21 +1,20 @@
-<h1>配送先編集</h1>
-
-<%= form_with model: @address, url: address_path, local:true do |f| %>
-  <table>
-    <tbody>
+<div class="public_address">
+  <h2>配送先編集</h2>
+  <%= form_with model: @address, url: address_path, local:true do |f| %>
+    <table class="public_address_edit">
       <tr>
-        <th>郵便番号(ハイフンなし)</th>
+        <th class="public_address_edit-title">郵便番号(ハイフンなし)</th>
         <td><%= f.text_field :postal_code %></td>
       </tr>
       <tr>
-        <th>住所</th>
-        <td><%= f.text_field :address %></td>
+        <th class="public_address_edit-title">住所</th>
+        <td><%= f.text_field :address, class: "public_address_edit-address-form" %></td>
       </tr>
       <tr>
-        <th>宛名</th>
+        <th class="public_address_edit-title">宛名</th>
         <td><%= f.text_field :name %></td>
       </tr>
-    </tbody>
-  </table>
-  <%= f.submit %>
-<% end %>
+    </table>
+    <div class="public_address-action"><%= f.submit %></div>
+  <% end %>
+</div>
