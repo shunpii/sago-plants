@@ -1,3 +1,49 @@
 // Place all the styles related to the public/addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.public_address {
+  margin-left: 20%;
+}
+
+.public_address-registration, .public_address-list {
+  margin-left: 5%;
+}
+
+.public_address-action {
+  margin-left: 20%;
+  margin-top: 10px;
+}
+
+.public_address-registration-title {
+  padding: 10px;
+  text-align: left;
+}
+
+.public_address-address-form {
+  width: 300px;
+}
+
+.public_address-btn {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 4px 10px;
+  background-color: #eee;
+  color: #000;
+  text-decoration: none;
+}
+
+.public_address-list {
+  width: 90%;
+  margin-top: 20px;
+}
+
+.public_address-list-postal_code, .public_address-list-name {
+  width: 10%;
+  background-color: #eee;
+}
+
+.public_address-list-address {
+  width: 30%;
+  background-color: #eee;
+}
