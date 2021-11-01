@@ -10,9 +10,9 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    @customer = current_customer
+    customer = current_customer
     #binding.pry
-    @customer.update(customer_params) #updateできない
+    customer.update(customer_params) #updateできない
     redirect_to customers_path
   end
 
