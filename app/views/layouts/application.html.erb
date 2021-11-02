@@ -7,27 +7,26 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://kit.fontawesome.com/18fdef0726.js" crossorigin="anonymous"></script>
   </head>
-  
+
   <div class="container">
-    <header>
-      <% if admin_signed_in? %>
-        <%= render 'layouts/admin_header' %>
-      <% else %>
-        <%= render 'layouts/public_header' %>
-      <% end %>
-    </header>
-    <body>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </body>
-    <footer>
-      <% if customer_signed_in? %>
-        <div class="footer-item"><%= link_to "お問い合わせ", inquiry_index_path %></div>
-      <% end %>
-    </footer>
+  <header>
+    <% if admin_signed_in? %>
+      <%= render 'layouts/admin_header' %>
+    <% else %>
+      <%= render 'layouts/public_header' %>
+    <% end %>
+  </header>
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+  <footer>
+    <% if customer_signed_in? %>
+      <div class="footer-item"><%= link_to "お問い合わせ", inquiry_index_path %></div>
+    <% end %>
+  </footer>
   </div>
-  
+
 </html>
