@@ -1,4 +1,4 @@
-<%= javascript_include_tag 'public/items' %>
+
 
 <%= link_to "一覧へ戻る", root_path %>
 <div class="product_details">
@@ -8,7 +8,7 @@
     </div>
     <div>
       <% @item.item_images.each do |image| %>
-        <%= attachment_image_tag image, :image, size: "150x150",　format: 'jpeg' %>
+        <a class="item-image-mini"><%= attachment_image_tag image, :image, size: "150x150" %></a>
       <% end %>
     </div>
   </div>
@@ -37,6 +37,6 @@
   </div>
 </div>
 
-
+<%= javascript_include_tag 'public/items' %>
 
 
