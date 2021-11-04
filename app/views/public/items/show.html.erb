@@ -1,54 +1,42 @@
+<%= javascript_include_tag 'public/items' %>
 
-<div class="item">
-  <% @item.item_images.each do |image| %>
-    <%= attachment_image_tag image, :image, size: "400x350",　format: 'jpeg' %>
-  <% end %>
-  <table class="item-unit">
-    <tr>
-      <th>商品名</th>
-      <td><%= @item.name %></td>
-    </tr>
-    <tr>
-      <th>サイズ</th>
-      <td>H :<%= @item.size_height %></td>
-      <td>W :<%= @item.size_width %></td>
-    </tr>
-    <tr>
-      <th>税込価格</th>
-      <td><%= @item.price %> 円</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>
-        <%= form_with model: @favorite, url: favorites_path, local:true do |f| %>
+<%= link_to "一覧へ戻る", root_path %>
+<div class="product_details">
+  <div>
+    <div>
+      <%= attachment_image_tag @item.item_images[0], :image, size: "500x450", id: 'item-image' %>
+    </div>
+    <div>
+      <% @item.item_images.each do |image| %>
+        <%= attachment_image_tag image, :image, size: "150x150",　format: 'jpeg' %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <div class="product_details-content"><%= @item.name %></div>
+    <div class="product_details-content">H :<%= @item.size_height %> W :<%= @item.size_width %></div>
+    <div class="product_details-content">
+      <%= form_with model: @favorite, url: favorites_path, local:true do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.submit "お気に入り" %>
+      <% end %>
+    </div>
+    <div class="product_details-content"><%= @item.introduction %></div>
+    <div class="product_details-content"><%= @item.shipping_method %></div>
+    <div class="product_details-content">
+      <% if @item.order_details.present? %>
+        Sold Out!!
+      <% else %>
+        <%= @item.price %> 円
+        <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.submit "お気に入り登録" %>
+          <%= f.submit "カートに追加" %>
         <% end %>
-      </td>
-    </tr>
-    <tr>
-      <th>商品説明</th>
-      <td><%= @item.introduction %></td>
-    </tr>
-    <tr>
-      <th>発送方法</th>
-      <td><%= @item.shipping_method %></td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>
-        <% if @item.order_details.present? %>
-          Sold Out!!
-        <% else %>
-          <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
-            <%= f.hidden_field :item_id, :value => @item.id %>
-            <%= f.submit "カートに入れる" %>
-          <% end %>
-        <% end %>
-      </td>
-    </tr>
-  </table>
-  <%= link_to "一覧へ戻る", root_path %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<script src="items.js"></script>
+
+
+
