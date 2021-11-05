@@ -1,19 +1,21 @@
-<h1>商品一覧</h1>
+<div>
+  <h1>商品一覧</h1>
+  <%= link_to "商品登録", new_admin_item_path %>
 
-<%= link_to "商品登録", new_admin_item_path %>
-
-<div class="item-list">
-  <% @items.each do |item| %>
-    <%= link_to admin_item_path(item.id) do %>
-      <div class="item-text">
-        <div>
-          <% item.item_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, size: "350x300",format: 'jpeg' %>
-          <% end %>
+  <div class="item-list">
+    <% @items.each do |item| %>
+      <%= link_to admin_item_path(item.id) do %>
+        <div class="item-text">
+          <div>
+            <% item.item_images.first(1).each do |image| %>
+              <%= attachment_image_tag image, :image, size: "350x300",format: 'jpeg' %>
+            <% end %>
+          </div>
+          <div><%= item.name %></div>
+          <div><%= item.price %>円</div>
         </div>
-        <div><%= item.name %></div>
-        <div><%= item.price %>円</div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
+
