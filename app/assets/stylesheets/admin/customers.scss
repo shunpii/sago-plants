@@ -58,3 +58,33 @@
     text-decoration: none;
   }
 }
+
+
+.customer-edit {
+  margin-left: 25%;
+
+  &__list {
+    margin-left: 15px;
+  }
+
+  &__list--item {
+    height: 40px;
+    text-align: left;
+  }
+
+  &__list--content {
+    padding-left: 15px;
+  }
+
+  &__list--entry-field {
+    width: 310px;
+  }
+
+  &__action {
+    margin-left: 15%;
+  }
+
+  &__action--item {
+    padding: 0 25px;
+  }
+}
