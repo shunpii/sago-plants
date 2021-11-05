@@ -17,3 +17,44 @@
     text-align: center;
   }
 }
+
+
+
+.customer-details {
+  margin-left: 25%;
+
+  &__list {
+    margin-left: 15px;
+  }
+
+  &__list--title {
+    text-align: left;
+    width: 130px;
+    height: 40px;
+    background-color: #eee;
+    border: 1px solid;
+  }
+
+  &__list--content {
+    width: 600px;
+    padding-left: 10px;
+    border: 1px solid;
+  }
+
+  &__action {
+    display: flex;
+  }
+
+  &__action--item {
+    padding: 20px 50px;
+  }
+
+  &__action--btn {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    background-color: #eee;
+    color: #000;
+    text-decoration: none;
+  }
+}
