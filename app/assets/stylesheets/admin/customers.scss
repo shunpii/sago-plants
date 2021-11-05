@@ -1,3 +1,19 @@
 // Place all the styles related to the admin/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.customer-list {
+  margin: auto;
+
+  &__customer-title {
+    width: 10%;
+    height: 50px;
+    background-color: #eee;
+  }
+
+  &__customer-content {
+    height: 45px;
+    border-bottom: 1px solid;
+    text-align: center;
+  }
+}
