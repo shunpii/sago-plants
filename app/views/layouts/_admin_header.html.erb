@@ -1,6 +1,6 @@
 <% if admin_signed_in? %>
   <div class="header-item">
-    <div class="header-item-image"><%= image_tag asset_path('header'), :size => "500x250" %></div>
+    <div class="header-item-image"><%= image_tag asset_path('header.jpg'), :size => "500x250" %></div>
     <div>
       <ul class="header-item-list">
         <li class="header-item-list-title"><%= link_to "ITEM", admin_items_path, class: "header-action" %></li>
@@ -12,7 +12,7 @@
   </div>
 <% else %>
   <div class="header-item">
-    <div class="header-item-image"><%= image_tag asset_path('header'), :size => "500x250" %></div>
+    <div class="header-item-image"><%= image_tag asset_path('header.jpg'), :size => "500x250" %></div>
     <div>
       <ul class="header-item-list">
         <li class="header-item-list-title"><%= link_to "HOME", root_path, class: "header-action" %></li>
