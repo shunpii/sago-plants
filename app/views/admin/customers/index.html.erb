@@ -1,23 +1,23 @@
 <table class="customer-list">
   <thead>
     <tr>
-      <th class="customer-list__customer-title">会員ID</th>
-      <th class="customer-list__customer-title">氏名</th>
-      <th class="customer-list__customer-title">メールアドレス</th>
-      <th class="customer-list__customer-title">ステータス</th>
+      <th class="customer-list__item">会員ID</th>
+      <th class="customer-list__item">氏名</th>
+      <th class="customer-list__item">メールアドレス</th>
+      <th class="customer-list__item">ステータス</th>
     </tr>
   </thead>
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td class="customer-list__customer-content"><%= customer.id %></td>
-        <td class="customer-list__customer-content">
+        <td class="customer-list__content"><%= customer.id %></td>
+        <td class="customer-list__content">
           <%= link_to admin_customer_path(customer.id) do %>
-            <%= customer.first_name %><%= customer.last_name %>
+            <%= customer.first_name %> <%= customer.last_name %>
           <% end %>
         </td>
-        <td class="customer-list__customer-content"><%= customer.email %></td>
-        <td class="customer-list__customer-content">
+        <td class="customer-list__content"><%= customer.email %></td>
+        <td class="customer-list__content">
           <% if customer.is_member %>
             有効
           <% else %>
