@@ -1,11 +1,31 @@
-<h1>商品登録</h1>
-<% if @item.errors.any? %>
-  <%= @item.errors.count %>件のエラーが発生しました
-  <% @item.errors.full_messages.each do |message| %>
-    <ul>
-      <li><%= message %></li>
-    </ul>
+<div class="new-item">
+  <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
+    <table class="new-item__list">
+      <tr>
+        <th class="new-item__item">商品画像</th>
+        <td class="new-item__item--content"><%= f.attachment_field :item_images_images, multiple: true %></td>
+      </tr>
+      <tr>
+        <th class="new-item__item">商品名</th>
+        <td class="new-item__item--content"><%= f.text_field :name, class: "new-item__item--name-form" %></td>
+      </tr>
+      <tr>
+        <th class="new-item__item">商品説明</th>
+        <td class="new-item__item--content"><%= f.text_area :introduction, class: "new-item__item--introduction-form" %></td>
+      </tr>
+      <tr>
+        <th class="new-item__item">サイズ</th>
+        <td class="new-item__item--content">H: <%= f.text_field :size_height, class: "new-item__item--size-form" %>cm W: <%= f.text_field :size_width, class: "new-item__item--size-form" %>cm</td>
+      </tr>
+      <tr>
+        <th class="new-item__item">発送方法</th>
+        <td class="new-item__item--content"><%= f.text_field :shipping_method %></td>
+      </tr>
+      <tr>
+        <th class="new-item__item">税込価格</th>
+        <td class="new-item__item--content"><%= f.text_field :price, class: "new-item__item--price-form" %> 円</td>
+      </tr>
+    </table>
+    <div class="new-item__action"><%= f.submit %></div>
   <% end %>
-<% end %>
-
-<%= render 'list', item: @item %>
+</div>
