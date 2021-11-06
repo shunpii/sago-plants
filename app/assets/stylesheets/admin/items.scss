@@ -13,5 +13,19 @@
   &__item--content {
     margin: 40px;
   }
+}
 
+
+.item-detail {
+  margin: auto;
+  display: flex;
+
+  &__item {
+    list-style: none;
+  }
+
+  &__item--content {
+    font-size: 20px;
+    margin: 20px 0;
+  }
 }
