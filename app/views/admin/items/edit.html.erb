@@ -28,10 +28,6 @@
                 <td class="item-edit__item--content"><%= f.text_field :price, class: "item-edit__item--price-form" %> 円</td>
             </tr>
         </table>
-        <div>
-            <ul class="item-edit__action">
-                <li class="item-edit__action--content"><%= f.submit %></li>
-            </ul>
-        </div>
+        <div class="item-edit__action"><%= f.submit %></div>
     <% end %>
 </div>
