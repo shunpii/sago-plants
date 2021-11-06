@@ -1,9 +1,9 @@
-<div class="goots-list">
+<div class="item-list">
   <h3><%= link_to "商品登録", new_admin_item_path %></h3>
-  <div class="goots-list__item">
+  <div class="item-list__item">
     <% @items.each do |item| %>
       <%= link_to admin_item_path(item.id) do %>
-        <div class="goots-list__item--content">
+        <div class="item-list__item--content">
           <div>
             <% item.item_images.first(1).each do |image| %>
               <%= attachment_image_tag image, :image, size: "350x300",format: 'jpeg' %>
