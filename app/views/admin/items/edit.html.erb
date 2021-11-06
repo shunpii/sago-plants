@@ -1,34 +1,37 @@
-<h1>商品編集</h1>
-
-<%= form_with model: @item, url: admin_item_path, local:true do |f| %>
-  <table>
-        <tr>
-            <th>商品画像</th>
-            <td><%= f.attachment_field :item_images_images, multiple: true %></td>
-        </tr>
-        <tr>
-            <th>商品名</th>
-            <td><%= f.text_field :name %></td>
-        </tr>
-        <tr>
-            <th>商品説明</th>
-            <td><%= f.text_area :introduction %></td>
-        </tr>
-        <tr>
-            <th>サイズ</th>
-            <td>H: <%= f.text_field :size_height %></td>
-            <td>W: <%= f.text_field :size_width %></td>
-        </tr>
-        <tr>
-            <th>発送方法</th>
-            <td><%= f.text_field :shipping_method %></td>
-        </tr>
-        <tr>
-            <th>税込価格</th>
-            <td><%= f.text_field :price %> 円</td>
-        </tr>
-  </table>
-  <%= f.submit %>
-<% end %>
-
-<%= link_to "削除", admin_item_path(@item.id), method: :delete %>
+<div class="item-edit">
+    <%= form_with model: @item, url: admin_item_path, local:true do |f| %>
+        <table class="item-edit__list">
+            <tr>
+                <th class="item-edit__item">商品画像</th>
+                <td class="item-edit__item--content"><%= f.attachment_field :item_images_images, multiple: true %></td>
+            </tr>
+            <tr>
+                <th class="item-edit__item">商品名</th>
+                <td class="item-edit__item--content"><%= f.text_field :name, class: "item-edit__item--name-form" %></td>
+            </tr>
+            <tr>
+                <th class="item-edit__item">商品説明</th>
+                <td class="item-edit__item--content"><%= f.text_area :introduction, class: "item-edit__item--introduction-form" %></td>
+            </tr>
+            <tr>
+                <th class="item-edit__item">サイズ</th>
+                <td class="item-edit__item--content">
+                    H: <%= f.text_field :size_height, class: "item-edit__item--size-form" %>cm W: <%= f.text_field :size_width, class: "item-edit__item--size-form" %>cm
+                </td>
+            </tr>
+            <tr>
+                <th class="item-edit__item">発送方法</th>
+                <td class="item-edit__item--content"><%= f.text_field :shipping_method %></td>
+            </tr>
+            <tr>
+                <th class="item-edit__item">税込価格</th>
+                <td class="item-edit__item--content"><%= f.text_field :price, class: "item-edit__item--price-form" %> 円</td>
+            </tr>
+        </table>
+        <div>
+            <ul class="item-edit__action">
+                <li class="item-edit__action--content"><%= f.submit %></li>
+            </ul>
+        </div>
+    <% end %>
+</div>
