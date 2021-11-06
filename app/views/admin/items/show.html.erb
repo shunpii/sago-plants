@@ -17,7 +17,7 @@
       <li class="item-detail__item--content"><%= @item.introduction %></li>
       <li class="item-detail__item--content">¥<%= @item.price %></li>
       <li class="item-detail__item--content"><%= @item.shipping_method %></li>
-      <li class="item-detail__item--content"><%= link_to "編集", edit_admin_item_path %></li>
+      <li class="item-detail__item--content"><%= link_to "編集", edit_admin_item_path %>  <%= link_to "削除", admin_item_path(@item.id), method: :delete %></li>
     </ul>
   </div>
 </div>
