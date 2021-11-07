@@ -1,5 +1,5 @@
 <div><%= link_to "一覧へ戻る", admin_items_path %></div>
-<div class="item-detail">
+<div class="item-details">
   <div>
     <div>
       <%= attachment_image_tag @item.item_images[0], :image, size: "450x400", id: 'item-image' %>
@@ -11,12 +11,12 @@
     </div>
   </div>
   <div>
-    <ul class="item-detail__item">
-      <li class="item-detail__item--content"><%= @item.name %></li>
-      <li class="item-detail__item--content">H :<%= @item.size_height %>cm W :<%= @item.size_width %>cm</li>
-      <li class="item-detail__item--content"><%= @item.introduction %></li>
-      <li class="item-detail__item--content">¥<%= @item.price %></li>
-      <li class="item-detail__item--content"><%= @item.shipping_method %></li>
+    <ul class="item-details__item">
+      <li class="item-details__item--content"><%= @item.name %></li>
+      <li class="item-details__item--content">H :<%= @item.size_height %>cm W :<%= @item.size_width %>cm</li>
+      <li class="item-details__item--content"><%= @item.introduction %></li>
+      <li class="item-details__item--content">¥<%= @item.price %></li>
+      <li class="item-details__item--content"><%= @item.shipping_method %></li>
       <li class="item-detail__item--content"><%= link_to "編集", edit_admin_item_path %>  <%= link_to "削除", admin_item_path(@item.id), method: :delete %></li>
     </ul>
   </div>
