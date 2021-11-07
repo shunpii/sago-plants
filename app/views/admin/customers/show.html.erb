@@ -45,7 +45,7 @@
     <div class="customer-details__action--item">
       <!--注文履歴があればリンクの表示,ない場合はリンクなし-->
       <% if @customer.orders.present? %>
-        <%= link_to "注文履歴一覧を見る", admin_order_path, class: "customer-details__action--btn" %>
+        <%= link_to "注文履歴を見る", admin_order_path, class: "customer-details__action--btn" %>
       <% else %>
         <p class="customer-details__action--btn">注文履歴なし</p>
       <% end %>

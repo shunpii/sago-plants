@@ -11,23 +11,25 @@
   </head>
 
   <div class="container">
-  <header>
-    <% if admin_signed_in? %>
-      <%= render 'layouts/admin_header' %>
-    <% else %>
-      <%= render 'layouts/public_header' %>
-    <% end %>
-  </header>
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
-  <footer>
-    <% if customer_signed_in? %>
-      <div class="footer-item"><%= link_to "お問い合わせ", inquiry_index_path %></div>
-    <% end %>
-  </footer>
+    <header>
+      <% if admin_signed_in? %>
+        <%= render 'layouts/admin_header' %>
+      <% else %>
+        <%= render 'layouts/public_header' %>
+      <% end %>
+    </header>
+    <body>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </body>
+    <footer>
+      <% if customer_signed_in? %>
+        <div class="footer-item"><%= link_to "お問い合わせ", inquiry_index_path %></div>
+      <% else %>
+        <div class="footer-item"></div>
+      <% end %>
+    </footer>
   </div>
 
 </html>
