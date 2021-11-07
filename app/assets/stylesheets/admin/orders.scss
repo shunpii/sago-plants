@@ -1,3 +1,62 @@
 // Place all the styles related to the admin/orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order-details {
+    margin: auto;
+
+    &__item {
+      display: flex;
+      margin-bottom: 50px;
+    }
+
+    &__buyer--item {
+      width: 200px;
+      height: 40px;
+      background-color: #eee;
+      border: 1px solid;
+    }
+
+    &__buyer--item-content {
+      width: 400px;
+      padding-left: 20px;
+      border: 1px solid;
+    }
+
+    &__order-list--item-name {
+      width: 400px;
+      height: 40px;
+      background-color: #eee;
+      border: 1px solid;
+    }
+
+    &__order-list--item-price {
+      width: 100px;
+      height: 40px;
+      background-color: #eee;
+      border: 1px solid;
+    }
+
+    &__order-list--content {
+      height: 40px;
+      border: 1px solid;
+    }
+
+    &__price {
+      margin: 0 50px;
+    }
+
+    &__price--item {
+      width: 100px;
+      height: 40px;
+      background-color: #eee;
+      border: 1px solid;
+    }
+
+    &__price--content {
+      width: 100px;
+      border: 1px solid;
+      padding-left: 10px;
+    }
+
+}

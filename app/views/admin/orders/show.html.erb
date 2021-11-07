@@ -1,71 +1,74 @@
-<h1>注文履歴詳細</h1>
-
-<table>
-  <tbody>
-    <tr>
-      <th>購入者</th>
-      <td><%= @order.customer.first_name %> <%= @order.customer.last_name %></td>
-    </tr>
-    <tr>
-      <th>注文日</th>
-      <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-    </tr>
-    <tr>
-      <th>配送先</th>
-      <td>
-        <%= @order.postal_code %>
-        <%= @order.address %>
-        <%= @order.name %>
-      </td>
-    </tr>
-    <tr>
-      <th>支払方法</th>
-      <td><%= @order.payment_method %></td>
-    </tr>
-    <tr>
-      <th>注文ステータス</th>
-      <td>
-        <%= form_with model: @order, url: admin_order_path, local:true do |f| %>
-          <%= f.select :status, Order.statuses.keys.to_a,{} %><!--ステータスを表示させる-->
-          <%= f.submit "更新" %>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>税込価格</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @sum = 0 %>
-    <% @orders.each do |order| %>
+<div class="order-details">
+  <div class="order-details__item">
+    <table class="order-details__buyer">
       <tr>
-        <td><%= order.item.name %></td>
-        <td><%= order.price %></td>
+        <th class="order-details__buyer--item">購入者</th>
+        <td class="order-details__buyer--item-content"><%= @order.customer.first_name %> <%= @order.customer.last_name %></td>
       </tr>
-    <% @sum += order.price %>
-    <% end %>
-  </tbody>
-</table>
+      <tr>
+        <th class="order-details__buyer--item">注文日</th>
+        <td class="order-details__buyer--item-content"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <tr>
+        <th class="order-details__buyer--item">配送先</th>
+        <td class="order-details__buyer--item-content">
+          <%= @order.postal_code %><br>
+          <%= @order.address %><br>
+          <%= @order.name %>
+        </td>
+      </tr>
+      <tr>
+        <th class="order-details__buyer--item">支払方法</th>
+        <td class="order-details__buyer--item-content"><%= @order.payment_method %></td>
+      </tr>
+      <tr>
+        <th class="order-details__buyer--item">注文ステータス</th>
+        <td class="order-details__buyer--item-content">
+          <%= form_with model: @order, url: admin_order_path, local:true do |f| %>
+            <%= f.select :status, Order.statuses.keys.to_a,{} %><!--ステータスを表示させる-->
+            <%= f.submit "更新" %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="order-details__item">
+    <div>
+      <table class="order-details__order-list">
+        <thead>
+          <tr>
+            <th class="order-details__order-list--item-name">商品名</th>
+            <th class="order-details__order-list--item-price">税込価格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sum = 0 %>
+          <% @orders.each do |order| %>
+            <tr>
+              <td class="order-details__order-list--content"><%= order.item.name %></td>
+              <td class="order-details__order-list--content"><%= order.price %>円</td>
+            </tr>
+          <% @sum += order.price %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table class="order-details__price">
+        <tr>
+          <th class="order-details__price--item">商品合計</th>
+          <td class="order-details__price--content"><%= @sum %>円</td>
+        </tr>
+        <tr>
+          <th class="order-details__price--item">送料</th>
+          <td class="order-details__price--content"><%= @order.shipping_cost %>円</td>
+        </tr>
+        <tr>
+          <th class="order-details__price--item">請求金額</th>
+          <td class="order-details__price--content"><%= @order.total_payment = @sum + @order.shipping_cost %>円</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tbody>
-    <tr>
-      <th>商品合計</th>
-      <td><%= @sum %></td>
-    </tr>
-    <tr>
-      <th>送料</th>
-      <td><%= @order.shipping_cost %></td>
-    </tr>
-    <tr>
-      <th>請求金額</th>
-      <td><%= @order.total_payment = @sum + @order.shipping_cost %></td>
-    </tr>
-  </tbody>
-</table>
