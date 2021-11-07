@@ -1,6 +1,6 @@
 <div class="new-item">
   <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
-    <table class="new-item__list">
+    <table>
       <tr>
         <th class="new-item__item">商品画像</th>
         <td class="new-item__item--content"><%= f.attachment_field :item_images_images, multiple: true %></td>
