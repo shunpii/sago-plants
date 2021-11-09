@@ -19,9 +19,9 @@
         <td class="customer-list__content"><%= customer.email %></td>
         <td class="customer-list__content">
           <% if customer.is_member %>
-            有効
+            <p class="customer-list__content--font-green">有効</p>
           <% else %>
-            無効
+            <p class="customer-list__content--font-gray">無効</p>
           <% end %>
         </td>
       </tr>
