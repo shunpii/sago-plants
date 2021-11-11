@@ -1,39 +1,39 @@
 
 <%= form_with model: @order, url: orders_confirm_path, method: :post, local:true do |f| %>
   <div class="order-new">
-    <div class="order-method">
+    <div class="order-new__content">
       <h2>支払方法</h2>
-      <div class="order-method-item"><%= f.radio_button :payment_method, :クレジットカード %> クレジットカード</div>
-      <div class="order-method-item"><%= f.radio_button :payment_method, :銀行振込 %> 銀行振込</div>
+      <div class="order-new__order-method"><%= f.radio_button :payment_method, :クレジットカード %> クレジットカード</div>
+      <div class="order-new__order-method"><%= f.radio_button :payment_method, :銀行振込 %> 銀行振込</div>
     </div>
-    <div class="order-address">
+    <div class="order-new__content">
       <h2>お届け先</h2>
-      <div class="order-address-list">
+      <div class="order-new__address-list">
         <div>
-          <div class="order-address-item"><%= f.radio_button :address_number, 0 %> ご自身の住所</div>
-          <div class="order-address-content">
+          <div class="order-new__address"><%= f.radio_button :address_number, 0 %> ご自身の住所</div>
+          <div class="order-new__address--content">
             〒<%= @customer.postal_code %><br>
             <%= @customer.address %><br>
             <%= @customer.first_name %> <%= @customer.last_name %>
           </div>
         </div>
         <div>
-          <div class="order-address-item"><%= f.radio_button :address_number, 1 %> 登録済住所から選択</div>
-          <div class="order-address-content"><%= f.select :address_id, @address.map{ |address| [address.postal_code + address.address + address.name, address.id]} %></div>
+          <div class="order-new__address"><%= f.radio_button :address_number, 1 %> 登録済住所から選択</div>
+          <div class="order-new__address--content"><%= f.select :address_id, @address.map{ |address| [address.postal_code + address.address + address.name, address.id]} %></div>
         </div>
         <div>
-          <div class="order-address-item"><%= f.radio_button :address_number, 2 %> 新しいお届け先</div>
-          <table class="order-address-content">
+          <div class="order-new__address"><%= f.radio_button :address_number, 2 %> 新しいお届け先</div>
+          <table class="order-new__address--content">
             <tr>
-              <th class="order-address-new">郵便番号</th>
+              <th class="order-new__address--new">郵便番号</th>
               <td><%= f.text_field :postal_code %></td>
             </tr>
             <tr>
-              <th class="order-address-new">住所</th>
-              <td><%= f.text_field :address, class: "address-form" %></td>
+              <th class="order-new__address--new">住所</th>
+              <td><%= f.text_field :address, class: "order-new__address-form" %></td>
             </tr>
             <tr>
-              <th class="order-address-new">宛名</th>
+              <th class="order-new__address--new">宛名</th>
               <td><%= f.text_field :name %></td>
             </tr>
           </table>
@@ -41,6 +41,6 @@
       </div>
     </div>
   </div>
-  <div class="order-action"><%= f.submit "確認画面へ進む" %></div>
+  <div class="order-new__action"><%= f.submit "確認画面へ進む" %></div>
 <% end %>
 

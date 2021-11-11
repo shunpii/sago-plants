@@ -10,13 +10,17 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
+        <!--会員ID-->
         <td class="customer-list__content"><%= customer.id %></td>
+        <!--氏名-->
         <td class="customer-list__content">
           <%= link_to admin_customer_path(customer.id) do %>
             <%= customer.first_name %> <%= customer.last_name %>
           <% end %>
         </td>
+        <!--メールアドレス-->
         <td class="customer-list__content"><%= customer.email %></td>
+        <!--ステータス-->
         <td class="customer-list__content">
           <% if customer.is_member %>
             <p class="customer-list__content--font-green">有効</p>

@@ -31,11 +31,7 @@
 .customer-details {
   margin-left: 25%;
 
-  &__list {
-    margin-left: 15px;
-  }
-
-  &__list--item {
+  &__item {
     text-align: left;
     width: 130px;
     height: 40px;
@@ -43,29 +39,38 @@
     border: 1px solid;
   }
 
-  &__list--content {
+  &__content {
     width: 600px;
     padding-left: 10px;
     border: 1px solid;
+
+    &--font-green {
+      color: #0b0;
+    }
+
+    &--font-gray {
+      color: #aaa;
+    }
   }
 
   &__action {
     display: flex;
-  }
 
-  &__action--item {
-    padding: 20px 50px;
-  }
+    &--item {
+      padding: 20px 50px;
+    }
 
-  &__action--btn {
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 4px 10px;
-    background-color: #eee;
-    color: #000;
-    text-decoration: none;
+    &--btn {
+      border: 1px solid;
+      border-radius: 5px;
+      padding: 4px 10px;
+      background-color: #eee;
+      color: #000;
+      text-decoration: none;
+    }
   }
 }
+
 
 
 .customer-edit {
@@ -73,26 +78,26 @@
 
   &__list {
     margin-left: 15px;
-  }
 
-  &__list--item {
-    height: 40px;
-    text-align: left;
-  }
+    &--item {
+      height: 40px;
+      text-align: left;
+    }
 
-  &__list--content {
-    padding-left: 15px;
-  }
+    &--content {
+      padding-left: 15px;
+    }
 
-  &__list--entry-field {
-    width: 310px;
+    &--entry-field {
+      width: 310px;
+    }
   }
 
   &__action {
     margin-left: 15%;
-  }
 
-  &__action--item {
-    padding: 0 25px;
+    &--item {
+      padding: 0 25px;
+    }
   }
 }

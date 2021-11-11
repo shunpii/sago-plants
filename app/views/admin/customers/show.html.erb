@@ -1,41 +1,41 @@
 <div class="customer-details">
   <h2><%= @customer.first_name %> <%= @customer.last_name %>さん</h2>
-  <table class="customer-details__list">
+  <table>
     <tr>
-      <th class="customer-details__list--item">会員ID</th>
-      <td class="customer-details__list--content"><%= @customer.id %></td>
+      <th class="customer-details__item">会員ID</th>
+      <td class="customer-details__content"><%= @customer.id %></td>
     </tr>
     <tr>
-      <th class="customer-details__list--item">氏名</th>
-      <td class="customer-details__list--content"><%= @customer.first_name %> <%= @customer.last_name %></td>
+      <th class="customer-details__item">氏名</th>
+      <td class="customer-details__content"><%= @customer.first_name %> <%= @customer.last_name %></td>
     </tr>
     <tr>
-      <th class="customer-details__list--item">フリガナ</th>
-      <td class="customer-details__list--content"><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
+      <th class="customer-details__item">フリガナ</th>
+      <td class="customer-details__content"><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
     </tr>
     <tr>
-      <th class="customer-details__list--item">郵便番号</th>
-      <td class="customer-details__list--content"><%= @customer.postal_code %></td>
+      <th class="customer-details__item">郵便番号</th>
+      <td class="customer-details__content"><%= @customer.postal_code %></td>
     </tr>
     <tr>
-      <th class="customer-details__list--item">住所</th>
-      <td class="customer-details__list--content"><%= @customer.address %></td>
+      <th class="customer-details__item">住所</th>
+      <td class="customer-details__content"><%= @customer.address %></td>
     </tr>
     <tr>
-      <th class="customer-details__list--item">電話番号</th>
-      <td class="customer-details__list--content"><%= @customer.telephone_number %></td>
+      <th class="customer-details__item">電話番号</th>
+      <td class="customer-details__content"><%= @customer.telephone_number %></td>
     </tr>
     <tr>
-      <th class="customer-details__list--item">メールアドレス</th>
-      <td class="customer-details__list--content"><%= @customer.email %></td>
+      <th class="customer-details__item">メールアドレス</th>
+      <td class="customer-details__content"><%= @customer.email %></td>
     </tr>
     <tr>
-      <th class="customer-details__list--item">ステータス</th>
-      <td class="customer-details__list--content">
+      <th class="customer-details__item">ステータス</th>
+      <td class="customer-details__content">
         <% if @customer.is_member %>
-          有効
+          <p class="customer-details__content--font-green">有効</p>
         <% else %>
-          無効
+          <p class="customer-details__content--font-gray">無効</p>
         <% end %>
       </td>
     </tr>

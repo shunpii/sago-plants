@@ -5,8 +5,9 @@
 .product_details {
   display: flex;
   margin: auto;
-}
 
-.product_details-content {
-  margin: 20px;
+  &__content {
+    margin: 20px;
+    font-size: 20px;
+  }
 }

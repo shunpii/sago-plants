@@ -2,48 +2,78 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.public_address {
+.address-list {
   margin-left: 20%;
+
+  &__registration {
+    margin-left: 5%;
+
+    &--item {
+      padding: 10px;
+      text-align: left;
+    }
+
+    &--address-form {
+      width: 300px;
+    }
+  }
+
+  &__list {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+
+    &--postal_code {
+      width: 10%;
+      background-color: #eee;
+    }
+
+    &--address {
+      width: 30%;
+      background-color: #eee;
+    }
+
+    &--name {
+      width: 10%;
+      background-color: #eee;
+    }
+  }
+
+  &__btn {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    background-color: #eee;
+    color: #000;
+    text-decoration: none;
+  }
+
+  &__action {
+    margin-left: 20%;
+    margin-top: 10px;
+  }
 }
 
-.public_address-registration, .public_address-list, .public_address_edit {
-  margin-left: 5%;
-}
 
-.public_address-action {
+
+.address-edit {
   margin-left: 20%;
-  margin-top: 10px;
-}
 
-.public_address-registration-title, .public_address_edit-title {
-  padding: 10px;
-  text-align: left;
-}
+  &__edit {
+    margin-left: 5%;
 
-.public_address-address-form, .public_address_edit-address-form {
-  width: 300px;
-}
+    &--item {
+      padding: 10px;
+      text-align: left;
+    }
 
-.public_address-btn {
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 4px 10px;
-  background-color: #eee;
-  color: #000;
-  text-decoration: none;
-}
+    &--address-form {
+      width: 300px;
+    }
+  }
 
-.public_address-list {
-  width: 90%;
-  margin-top: 20px;
-}
-
-.public_address-list-postal_code, .public_address-list-name {
-  width: 10%;
-  background-color: #eee;
-}
-
-.public_address-list-address {
-  width: 30%;
-  background-color: #eee;
+  &__action {
+    margin-left: 20%;
+    margin-top: 10px;
+  }
 }

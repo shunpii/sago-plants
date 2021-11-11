@@ -1,10 +1,10 @@
-<div class="tp-item">
+<div class="top_page">
   <% @items.each do |item| %>
     <%= link_to item_path(item.id) do %>
-      <div class="tp-item-list">
+      <div class="top_page--list">
         <div>
           <% item.item_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, size: "550x500",　format: 'jpeg' %>
+            <%= attachment_image_tag image, :image, size: "550x500" %>
           <% end %>
         </div>
         <div><%= item.name %></div>

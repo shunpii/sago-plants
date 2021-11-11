@@ -5,13 +5,13 @@
 .order-list {
   margin: auto;
 
-  &__list--item {
+  &__item {
     width: 250px;
     height: 50px;
     background-color: #eee;
   }
 
-  &__list--content {
+  &__content {
     height: 40px;
     text-align: center;
     border-bottom: 1px solid;

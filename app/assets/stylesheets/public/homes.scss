@@ -2,21 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.tp-item {
+.top_page {
   display: flex;
   flex-wrap: wrap;
+
+  &--list {
+    margin: 40px 80px;
+    font-size: 20px;
+  }
 }
 
-.tp-item-list {
-  margin: 80px;
-  font-size: 20px;
-}
+
 
 .about {
   margin-top: 100px;
   margin-left: 25%;
-}
 
-.about-content {
-  font-size: 20px;
+  &__text {
+    font-size: 20px;
+  }
 }

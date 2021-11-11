@@ -1,5 +1,4 @@
 
-
 <%= link_to "一覧へ戻る", root_path %>
 <div class="product_details">
   <div>
@@ -13,17 +12,17 @@
     </div>
   </div>
   <div>
-    <div class="product_details-content"><%= @item.name %></div>
-    <div class="product_details-content">H :<%= @item.size_height %>cm W :<%= @item.size_width %>cm</div>
-    <div class="product_details-content">
+    <div class="product_details__content"><%= @item.name %></div>
+    <div class="product_details__content">H :<%= @item.size_height %>cm W :<%= @item.size_width %>cm</div>
+    <div class="product_details__content">
       <%= form_with model: @favorite, url: favorites_path, local:true do |f| %>
         <%= f.hidden_field :item_id, :value => @item.id %>
         <%= f.submit "お気に入り" %>
       <% end %>
     </div>
-    <div class="product_details-content"><%= @item.introduction %></div>
-    <div class="product_details-content"><%= @item.shipping_method %></div>
-    <div class="product_details-content">
+    <div class="product_details__content"><%= @item.introduction %></div>
+    <div class="product_details__content"><%= @item.shipping_method %></div>
+    <div class="product_details__content">
       <% if @item.order_details.present? %>
         Sold Out!!
       <% else %>

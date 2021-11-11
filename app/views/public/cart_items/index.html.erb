@@ -1,41 +1,59 @@
-
-<div class="cart_item-list">
-  <% @sum = 0 %>
-  <% @cart_items.each do |cart_item| %>
-    <div class="cart_item-item">
-      <div class="cart_item-image">
-        <% cart_item.item.item_images.first(1).each do |image| %>
-          <%= attachment_image_tag image, :image, size: "250x250" %>
+<% if @cart_items.exists? %><!--カート内商品がある場合は商品の表示。ない場合はメッセージの表示。-->
+  <div class="cart_item-list">
+    <table>
+      <thead>
+        <tr>
+          <th class="cart_item-list__name">商品名</th>
+          <th class="cart_item-list__size">サイズ</th>
+          <th class="cart_item-list__price">価格</th>
+          <th class="cart_item-list__action"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sum = 0 %>
+        <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td class="cart_item-list__name--content"><!--商品画像の一枚目を表示-->
+            <% cart_item.item.item_images.first(1).each do |image| %>
+              <%= attachment_image_tag image, :image, size: "100x100" %>
+            <% end %>
+            <!--商品名-->
+            <%= cart_item.item.name %>
+          </td>
+          <td class="cart_item-list__size--content"><!--商品のサイズ-->
+            H : <%= cart_item.item.size_height %>cm<br>
+            W : <%= cart_item.item.size_width %>cm
+          </td>
+          <td class="cart_item-list__price--content"><!--商品価格-->
+            ¥<%= cart_item.item.price %>
+          </td>
+          <td class="cart_item-list__action--content"><!--カート内から削除-->
+            <%= link_to "削除", cart_item_path(cart_item.id), method: :delete, class: "cart_item__action--btn" %>
+          </td>
+        </tr>
+        <% @sum += cart_item.item.price %>
         <% end %>
-      </div>
-      <div class="cart_item-content"><%= cart_item.item.name %></div>
-      <div class="cart_item-content">H : <%= cart_item.item.size_height %>cm W : <%= cart_item.item.size_width %>cm</div>
-      <div class="cart_item-content">¥<%= cart_item.item.price %></div>
-      <div class="cart_item-content"><%= link_to "削除", cart_item_path(cart_item.id), method: :delete, class: "cart_item-btn" %></div>
-    </div>
-  <% @sum += cart_item.item.price %>
-  <% end %>
-</div>
-<div class="cart_item-payment">
-  <% if @cart_items.exists? %>
+      </tbody>
+    </table>
+  </div>
+  <div class="cart_item-price">
     <table>
       <tr>
-        <th>商品合計</th>
-        <td>
+        <th class="cart_item-price__content">商品合計</th>
+        <td class="cart_item-price__content--item">
           <% if @cart_items.exists? %>
             ¥<%= @sum %>
           <% end %>
         </td>
       </tr>
-      <tr>
-        <th></th>
-        <td class="cart_item-action"><%= link_to "購入", new_order_path, class: "cart_item-btn" %></td>
-      </tr>
     </table>
-  <% else %>
-    <p class="cart_item-coment">カート内に商品はありません</p>
-  <% end %>
-</div>
+    <div class="cart_item__action">
+      <%= link_to "購入", new_order_path, class: "cart_item__action--btn" %>
+    </div>
+  </div>
+<% else %>
+  <p>カート内に商品はありません</p>
+<% end %>
 
 
 

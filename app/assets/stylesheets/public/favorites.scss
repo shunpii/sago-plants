@@ -6,19 +6,19 @@
   display: flex;
   flex-wrap: wrap;
   margin: 50px;
-}
 
-.favorite-item {
-  margin: 50px;
-}
+  &__content {
+    margin: 50px;
 
-.favorite-item-image {
-  margin: 0 30px 10px 40px;
-}
+    &--image {
+      margin: 0 30px 10px 40px;
+    }
 
-.favorite-item-content {
-  text-align: center;
-  margin: 10px;
+    &--item {
+      text-align: center;
+      margin: 10px;
+    }
+  }
 }
 
 .favorite-btn {

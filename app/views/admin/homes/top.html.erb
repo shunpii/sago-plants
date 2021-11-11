@@ -1,23 +1,26 @@
 <div class="order-list">
   <h2>注文履歴一覧</h2>
-  <table class="order-list__list">
+  <table>
     <thead>
       <tr>
-        <th class="order-list__list--item">購入日時</th>
-        <th class="order-list__list--item">氏名</th>
-        <th class="order-list__list--item">注文ステータス</th>
+        <th class="order-list__item">購入日時</th>
+        <th class="order-list__item">氏名</th>
+        <th class="order-list__item">注文ステータス</th>
       </tr>
     </thead>
     <tbody>
-      <% @orders.each do |order| %>
+      <% @orders.each do |order| %><!--全てのorderを表示-->
         <tr>
-          <td class="order-list__list--content">
+          <!--購入日時-->
+          <td class="order-list__content">
             <%= link_to admin_order_path(order.id) do %>
               <%= order.created_at.strftime('%Y/%m/%d %H:%M') %>
             <% end %>
           </td>
-          <td class="order-list__list--content"><%= order.customer.first_name %> <%= order.customer.last_name %></td>
-          <td class="order-list__list--content"><%= order.status %></td>
+          <!--氏名-->
+          <td class="order-list__content"><%= order.customer.first_name %> <%= order.customer.last_name %></td>
+          <!--注文ステータス-->
+          <td class="order-list__content"><%= order.status %></td>
         </tr>
       <% end %>
     </tbody>

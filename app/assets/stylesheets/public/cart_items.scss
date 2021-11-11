@@ -3,43 +3,57 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .cart_item-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px 50px;
+  margin: auto;
+
+  &__name {
+    width: 500px;
+    background-color: #eee;
+    border: 1px solid;
+
+    &--content {
+      border: 1px solid;
+    }
+  }
+
+  &__size, &__price, &__action {
+    width: 120px;
+    background-color: #eee;
+    border: 1px solid;
+
+    &--content {
+      border: 1px solid;
+    }
+  }
 }
 
-.cart_item-item {
-  margin: 50px;
-}
-
-.cart_item-image {
-  margin: 0 30px 10px 40px;
-}
-
-.cart_item-content {
-  text-align: center;
-  margin: 10px;
-}
-
-.cart_item-payment {
-  margin: 0 150px;
-}
-
-.cart_item-action {
-  margin: 10px;
-}
-
-.cart_item-btn {
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 4px 10px;
-  background-color: #eee;
-  color: #000;
-  text-decoration: none;
-}
-
-.cart_item-coment {
-  text-align: center;
+.cart_item-price {
+  margin-left: 10%;
   margin-top: 50px;
-  font-size: 25px;
+  display: flex;
+
+  &__content {
+    width: 120px;
+    border: 1px solid;
+    background-color: #eee;
+
+    &--item {
+      border: 1px solid;
+      width: 100px;
+      text-align: center;
+    }
+  }
+}
+
+.cart_item__action {
+  margin-top: 25px;
+  margin-left: 50px;
+
+  &--btn {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    background-color: #eee;
+    color: #000;
+    text-decoration: none;
+  }
 }

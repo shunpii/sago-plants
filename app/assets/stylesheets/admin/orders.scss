@@ -3,60 +3,63 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .order-details {
-    margin: auto;
+   margin: auto;
 
-    &__item {
-      display: flex;
-      margin-bottom: 50px;
-    }
+  &__buyer {
+    margin-bottom: 50px;
 
-    &__buyer--item {
+    &--item {
       width: 200px;
       height: 40px;
       background-color: #eee;
       border: 1px solid;
     }
 
-    &__buyer--item-content {
+    &--item-content {
       width: 400px;
       padding-left: 20px;
       border: 1px solid;
     }
+  }
 
-    &__order-list--item-name {
+  &__order-list {
+    display: flex;
+    margin-bottom: 50px;
+
+    &--name {
       width: 400px;
       height: 40px;
       background-color: #eee;
       border: 1px solid;
     }
 
-    &__order-list--item-price {
+    &--price {
       width: 100px;
       height: 40px;
       background-color: #eee;
       border: 1px solid;
     }
 
-    &__order-list--content {
+    &--content {
       height: 40px;
       border: 1px solid;
     }
+  }
 
-    &__price {
-      margin: 0 50px;
-    }
+  &__price {
+    margin: 0 50px;
 
-    &__price--item {
+    &--item {
       width: 100px;
       height: 40px;
       background-color: #eee;
       border: 1px solid;
     }
 
-    &__price--content {
+    &--content {
       width: 100px;
       border: 1px solid;
       padding-left: 10px;
     }
-
+  }
 }

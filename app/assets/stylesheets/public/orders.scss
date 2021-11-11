@@ -11,86 +11,95 @@ table {
 }
 
 .order-new {
-  margin-top: 50px;
   display: flex;
+
+  &__content {
+    margin: 0 30px;
+  }
+
+  &__order-method {
+    margin: 20px 0 20px 40px;
+  }
+
+  &__address-list {
+    display: flex;
+    margin-left: 40px;
+  }
+
+  &__address {
+    margin-right: 150px;
+
+    &--content {
+      margin: 0 20px;
+    }
+
+    &--new {
+      text-align: left;
+      padding-right: 10px;
+    }
+  }
+
+  &__action {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  &__address-form {
+    width: 300px;
+  }
 }
 
-.order-method {
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
-.order-address-list {
-  display: flex;
-  margin-left: 40px;
-}
-
-.order-method-item {
-  margin: 20px 0 20px 40px;
-}
-
-.order-address-item {
-  margin-right: 150px;
-}
-
-.order-address-content {
-  margin: 0 20px;
-}
-
-.order-address-new {
-  text-align: left;
-  padding-right: 10px;
-}
-
-.order-action {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.address-form {
-  width: 300px;
-}
 
 
 
 .order-confirm {
   display: flex;
   padding-top: 70px;
+
+  &__order {
+    margin: 0 100px;
+
+    &--name {
+      width: 500px;
+      height: 50px;
+      text-align: left;
+      background-color: #eee;
+      border: 1px solid;
+    }
+
+    &--size, &--price {
+      width: 100px;
+      height: 50px;
+      text-align: left;
+      background-color: #eee;
+      border: 1px solid;
+    }
+
+    &--name-content, &--size-content, &--price-content {
+      height: 50px;
+      border: 1px solid;
+    }
+  }
+
+  &__payment {
+    width: 100px;
+    text-align: left;
+    background-color: #eee;
+    height: 50px;
+    border: 1px solid;
+
+    &--content {
+      width: 100px;
+      text-align: left;
+      height: 50px;
+      border: 1px solid;
+    }
+  }
 }
 
-.order-item {
-  width: 70%;
-}
 
-.order-payment-list {
-  width: 30%;
-}
 
-.order-item, .order-payment-list {
-  padding: 0 50px;
-}
 
-.item-name {
-  width: 25%;
-}
-
-.item-size, .item-price {
-  width: 15%;
-}
-
-.item-name, .item-size, .item-price, .payment-title {
-  text-align: left;
-  background-color: #eee;
-}
-
-.order-item-name, .order-item-size, .order-item-price, .payment-title, .order-payment {
-  height: 50px;
-  border-bottom: 1px solid #eee;
-}
-
-.payment-title, .order-payment {
-  width: 10%;
-}
 
 .confirm-payment_method, .confirm-address {
   padding: 0 100px;

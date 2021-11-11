@@ -1,16 +1,22 @@
+<!--お気に入りがある場合は表示し、ない場合はメッセージを表示-->
 <% if @favorites.exists? %>
   <div class="favorite-list">
     <% @favorites.each do |favorite| %>
-      <div class="favorite-item">
-        <div class="favorite-item-image">
+      <div class="favorite-list__content">
+        <!--商品画像の一枚目を表示-->
+        <div class="favorite-list__content--image">
           <% favorite.item.item_images.first(1).each do |image| %>
             <%= attachment_image_tag image, :image, size: "250x250" %>
           <% end %>
         </div>
-        <div class="favorite-item-content"><%= favorite.item.name %></div>
-        <div class="favorite-item-content">H : <%= favorite.item.size_height %>cm W : <%= favorite.item.size_width %>cm</div>
-        <div class="favorite-item-content">¥<%= favorite.item.price %></div>
-        <div class="favorite-item-content"><%= link_to "お気に入り削除", favorite_path(favorite.id), method: :delete, class: "favorite-btn" %></div>
+        <!--商品名-->
+        <div class="favorite-list__content--item"><%= favorite.item.name %></div>
+        <!--商品サイズ-->
+        <div class="favorite-list__content--item">H : <%= favorite.item.size_height %>cm W : <%= favorite.item.size_width %>cm</div>
+        <!--商品価格-->
+        <div class="favorite-list__content--item">¥<%= favorite.item.price %></div>
+        <!--削除ボタン-->
+        <div class="favorite-list__content--item"><%= link_to "お気に入り削除", favorite_path(favorite.id), method: :delete, class: "favorite-btn" %></div>
       </div>
     <% end %>
   </div>

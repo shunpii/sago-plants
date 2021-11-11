@@ -1,6 +1,6 @@
 <div class="order-details">
-  <div class="order-details__item">
-    <table class="order-details__buyer">
+  <div class="order-details__buyer">
+    <table>
       <tr>
         <th class="order-details__buyer--item">購入者</th>
         <td class="order-details__buyer--item-content"><%= @order.customer.first_name %> <%= @order.customer.last_name %></td>
@@ -32,20 +32,22 @@
       </tr>
     </table>
   </div>
-  <div class="order-details__item">
+  <div class="order-details__order-list">
     <div>
-      <table class="order-details__order-list">
+      <table>
         <thead>
           <tr>
-            <th class="order-details__order-list--item-name">商品名</th>
-            <th class="order-details__order-list--item-price">税込価格</th>
+            <th class="order-details__order-list--name">商品名</th>
+            <th class="order-details__order-list--price">税込価格</th>
           </tr>
         </thead>
         <tbody>
           <% @sum = 0 %>
           <% @orders.each do |order| %>
             <tr>
+              <!--商品名-->
               <td class="order-details__order-list--content"><%= order.item.name %></td>
+              <!--税込価格-->
               <td class="order-details__order-list--content"><%= order.price %>円</td>
             </tr>
           <% @sum += order.price %>

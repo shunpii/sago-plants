@@ -1,41 +1,44 @@
-<div class="public_address">
+<div class="address-list">
   <h2>配送先登録/一覧</h2>
   <%= form_with model: @address, url: addresses_path, local:true do |f| %>
-    <table class="public_address-registration">
+    <table class="address-list__registration">
       <tr>
-        <th class="public_address-registration-title">郵便番号(ハイフンなし)</th>
+        <th class="address-list__registration--item">郵便番号(ハイフンなし)</th>
         <td><%= f.text_field :postal_code %></td>
       </tr>
       <tr>
-        <th class="public_address-registration-title">住所</th>
-        <td><%= f.text_field :address, class: "public_address-address-form" %></td>
+        <th class="address-list__registration--item">住所</th>
+        <td><%= f.text_field :address, class: "address-list__registration--address-form" %></td>
       </tr>
       <tr>
-        <th class="public_address-registration-title">宛名</th>
+        <th class="address-list__registration--item">宛名</th>
         <td><%= f.text_field :name %></td>
       </tr>
     </table>
-    <div class="public_address-action"><%= f.submit %></div>
+    <div class="address-list__action"><%= f.submit %></div>
   <% end %>
 
-  <table class="public_address-list">
+  <table class="address-list__list">
     <thead>
       <tr>
-        <th class="public_address-list-postal_code">郵便番号</th>
-        <th class="public_address-list-address">住所</th>
-        <th class="public_address-list-name">宛名</th>
+        <th class="address-list__list--postal_code">郵便番号</th>
+        <th class="address-list__list--address">住所</th>
+        <th class="address-list__list--name">宛名</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <% @addresses.each do |address| %>
         <tr>
+          <!--郵便番号-->
           <td><%= address.postal_code %></td>
+          <!--住所-->
           <td><%= address.address %></td>
+          <!--宛名-->
           <td><%= address.name %></td>
           <td>
-            <%= link_to "編集", edit_address_path(address.id), class: "public_address-btn" %>
-            <%= link_to "削除", address_path(address.id), method: :delete, class: "public_address-btn" %>
+            <%= link_to "編集", edit_address_path(address.id), class: "address-list__btn" %>
+            <%= link_to "削除", address_path(address.id), method: :delete, class: "address-list__btn" %>
           </td>
         </tr>
       <% end %>
