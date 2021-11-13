@@ -1,44 +1,72 @@
-<div class="order_histry_details">
-  <div class="order_details">
+<div class="order_details">
+  <div class="order_details__order_details">
     <h2>注文内容</h2>
     <table>
       <thead>
         <tr>
-          <th class="order_details-item">商品名</th>
-          <th class="order_details-size">サイズ</th>
-          <th class="order_details-price">税込価格</th>
+          <th class="order_details__order_details--item">商品名</th>
+          <th class="order_details__order_details--size">サイズ</th>
+          <th class="order_details__order_details--price">税込価格</th>
         </tr>
       </thead>
       <tbody>
           <% @sum = 0 %>
           <% @order.order_details.each do |order_detail| %>
             <tr>
-              <td class="order_details-content"><%= order_detail.item.name %></td>
-              <td class="order_details-content">
+              <!--商品名-->
+              <td class="order_details__order_details--content"><%= order_detail.item.name %></td>
+              <!--サイズ-->
+              <td class="order_details__order_details--content">
                 H : <%= order_detail.item.size_height %>cm<br>
                 W : <%= order_detail.item.size_width %>cm
               </td>
-              <td class="order_details-content">¥<%= order_detail.price %></td>
+              <!--価格-->
+              <td class="order_details__order_details--content">¥<%= order_detail.price %></td>
             </tr>
           <% @sum += order_detail.price %>
           <% end %>
       </tbody>
     </table>
   </div>
-  <div class="billing_information">
+  <div class="order_details__billing_information">
     <h2>請求情報</h2>
     <table>
       <tr>
-        <th class="billing_information-list-title">商品合計</th>
-        <td class="billing_information-list-content">¥<%= @sum %></td>
+        <th class="order_details__billing_information--item">商品合計</th>
+        <td class="order_details__billing_information--item-content">¥<%= @sum %></td>
       </tr>
       <tr>
-        <th class="billing_information-list-title">送料</th>
-        <td class="billing_information-list-content">¥<%= @order.shipping_cost %></td>
+        <th class="order_details__billing_information--item">送料</th>
+        <td class="order_details__billing_information--item-content">¥<%= @order.shipping_cost %></td>
       </tr>
       <tr>
-        <th class="billing_information-list-title">ご請求額</th>
-        <td class="billing_information-list-content">¥<%= @order.total_payment = @sum + @order.shipping_cost %></td>
+        <th class="order_details__billing_information--item">ご請求額</th>
+        <td class="order_details__billing_information--item-content">¥<%= @order.total_payment = @sum + @order.shipping_cost %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="order_details__order_information">
+    <h2>注文情報</h2>
+    <table>
+      <tr>
+        <th class="order_details__order_information--item">注文日</th>
+        <td class="order_details__order_information--item-content"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+      </tr>
+      <tr>
+        <th class="order_details__order_information--item">配送先</th>
+        <td class="order_details__order_information--item-content">
+          〒<%= @order.postal_code %><br>
+          <%= @order.address %><br>
+          <%= @order.name %>
+        </td>
+      </tr>
+      <tr>
+        <th class="order_details__order_information--item">支払方法</th>
+        <td class="order_details__order_information--item-content"><%= @order.payment_method %></td>
+      </tr>
+      <tr>
+        <th class="order_details__order_information--item">ステータス</th>
+        <td class="order_details__order_information--item-content"><%= @order.status %></td>
       </tr>
     </table>
   </div>
@@ -46,28 +74,4 @@
 
 
 
-<div class="order_information">
-  <h2>注文情報</h2>
-  <table>
-    <tr>
-      <th class="order_information-list-title">注文日</th>
-      <td class="order_information-list-content"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-    </tr>
-    <tr>
-      <th class="order_information-list-title">配送先</th>
-      <td class="order_information-list-content">
-        〒<%= @order.postal_code %><br>
-        <%= @order.address %><br>
-        <%= @order.name %>
-      </td>
-    </tr>
-    <tr>
-      <th class="order_information-list-title">支払方法</th>
-      <td class="order_information-list-content"><%= @order.payment_method %></td>
-    </tr>
-    <tr>
-      <th class="order_information-list-title">ステータス</th>
-      <td class="order_information-list-content"><%= @order.status %></td>
-    </tr>
-  </table>
-</div>
+
