@@ -22,17 +22,21 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'homes/about'
-    get 'customers/confirm'
-    patch 'customers/withdrawal'
-    delete 'cart_items/destroy_all'
-    delete 'favorites/destroy_all'
-    post 'orders/confirm'
-    get 'orders/complete'
     resources :items, only:[:show]
-    resource :customers, only:[:show, :edit, :update]
+    resource :customers, only:[:show, :edit, :update] do
+      collection do
+        get 'confirm'
+        patch 'withdrawal'
+      end
+    end
     resources :cart_items, only:[:index, :destroy, :create]
     resources :favorites, only:[:index, :destroy, :create]
-    resources :orders, only:[:new, :create, :index, :show]
+    resources :orders, only:[:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+    end
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
   end
 
