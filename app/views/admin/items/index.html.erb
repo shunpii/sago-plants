@@ -2,19 +2,19 @@
   <h3><%= link_to "商品登録", new_admin_item_path %></h3>
   <div class="item-list__item">
     <% @items.each do |item| %>
-      <%= link_to admin_item_path(item.id) do %>
-        <div class="item-list__item--content">
+      <div class="item-list__item--content">
+        <%= link_to admin_item_path(item.id) do %>
           <div><!--商品画像の一枚目を表示-->
             <% item.item_images.first(1).each do |image| %>
               <%= attachment_image_tag image, :image, size: "350x300" %>
             <% end %>
           </div>
-          <!--商品名の表示-->
-          <div><%= item.name %></div>
-          <!--商品価格の表示-->
-          <div><%= item.price %>円</div>
-        </div>
-      <% end %>
+        <% end %>
+        <!--商品名の表示-->
+        <div><%= item.name %></div>
+        <!--商品価格の表示-->
+        <div><%= item.price.to_s(:delimited) %>円</div>
+      </div>
     <% end %>
   </div>
 </div>
