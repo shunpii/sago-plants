@@ -14,7 +14,7 @@
         <!--商品サイズ-->
         <div class="favorite-list__content--item">H : <%= favorite.item.size_height %>cm W : <%= favorite.item.size_width %>cm</div>
         <!--商品価格-->
-        <div class="favorite-list__content--item">¥<%= favorite.item.price.to_s(:delimited) %></div>
+        <div class="favorite-list__content--item">¥<%= number_to_currency(favorite.item.price) %></div>
         <!--削除ボタン-->
         <div class="favorite-list__content--item"><%= link_to "お気に入り削除", favorite_path(favorite.id), method: :delete, class: "favorite-btn" %></div>
       </div>

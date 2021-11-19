@@ -21,7 +21,7 @@
                 W : <%= order_detail.item.size_width %>cm
               </td>
               <!--価格-->
-              <td class="order_details__order_details--content">¥<%= order_detail.price %></td>
+              <td class="order_details__order_details--content"><%= number_to_currency(order_detail.price) %></td>
             </tr>
           <% @sum += order_detail.price %>
           <% end %>
@@ -33,15 +33,15 @@
     <table>
       <tr>
         <th class="order_details__billing_information--item">商品合計</th>
-        <td class="order_details__billing_information--item-content">¥<%= @sum %></td>
+        <td class="order_details__billing_information--item-content"><%= number_to_currency(@sum) %></td>
       </tr>
       <tr>
         <th class="order_details__billing_information--item">送料</th>
-        <td class="order_details__billing_information--item-content">¥<%= @order.shipping_cost %></td>
+        <td class="order_details__billing_information--item-content"><%= number_to_currency(@order.shipping_cost) %></td>
       </tr>
       <tr>
         <th class="order_details__billing_information--item">ご請求額</th>
-        <td class="order_details__billing_information--item-content">¥<%= @order.total_payment = @sum + @order.shipping_cost %></td>
+        <td class="order_details__billing_information--item-content"><%= number_to_currency(@order.total_payment = @sum + @order.shipping_cost) %></td>
       </tr>
     </table>
   </div>

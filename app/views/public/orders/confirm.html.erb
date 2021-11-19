@@ -20,7 +20,7 @@
               W:<%= cart_item.item.size_width %>cm
             </td>
             <!--カート内の商品の価格-->
-            <td class="order-confirm__order--price-content">¥<%= cart_item.item.price %></td>
+            <td class="order-confirm__order--price-content"><%= number_to_currency(cart_item.item.price) %></td>
           </tr>
         <% @sum += cart_item.item.price %>
         <% end %>
@@ -31,15 +31,15 @@
     <table>
       <tr>
         <th class="order-confirm__payment">商品合計</th>
-        <td class="order-confirm__payment--content">¥<%= @sum %></td>
+        <td class="order-confirm__payment--content"><%= number_to_currency(@sum) %></td>
       </tr>
       <tr>
         <th class="order-confirm__payment">送料</th>
-        <td class="order-confirm__payment--content">¥<%= @order.shipping_cost %></td>
+        <td class="order-confirm__payment--content"><%= number_to_currency(@order.shipping_cost) %></td>
       </tr>
       <tr>
         <th class="order-confirm__payment">請求金額</th>
-        <td class="order-confirm__payment--content">¥<%= @order.total_payment = @sum + @order.shipping_cost %></td>
+        <td class="order-confirm__payment--content"><%= number_to_currency(@order.total_payment = @sum + @order.shipping_cost) %></td>
       </tr>
     </table>
   </div>
