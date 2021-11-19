@@ -12,7 +12,7 @@
           <% if item.order_details.present? %>
             Sold Out!!
           <% else %>
-            <%= item.price %>円
+            <%= number_to_currency(item.price) %>
           <% end %>
         </div>
       </div>

@@ -19,7 +19,7 @@
       <!--商品説明-->
       <li class="item-details__item--content"><%= @item.introduction %></li>
       <!--商品価格-->
-      <li class="item-details__item--content">¥<%= @item.price %></li>
+      <li class="item-details__item--content"><%= number_to_currency(@item.price) %></li>
       <!--発送方法-->
       <li class="item-details__item--content"><%= @item.shipping_method %></li>
       <!--編集・削除-->

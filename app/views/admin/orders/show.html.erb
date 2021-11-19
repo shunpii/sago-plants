@@ -48,7 +48,7 @@
               <!--商品名-->
               <td class="order-details__order-list--content"><%= order.item.name %></td>
               <!--税込価格-->
-              <td class="order-details__order-list--content"><%= order.price %>円</td>
+              <td class="order-details__order-list--content"><%= number_to_currency(order.price) %></td>
             </tr>
           <% @sum += order.price %>
           <% end %>
@@ -59,15 +59,15 @@
       <table class="order-details__price">
         <tr>
           <th class="order-details__price--item">商品合計</th>
-          <td class="order-details__price--content"><%= @sum %>円</td>
+          <td class="order-details__price--content"><%= number_to_currency(@sum) %></td>
         </tr>
         <tr>
           <th class="order-details__price--item">送料</th>
-          <td class="order-details__price--content"><%= @order.shipping_cost %>円</td>
+          <td class="order-details__price--content"><%= number_to_currency(@order.shipping_cost) %></td>
         </tr>
         <tr>
           <th class="order-details__price--item">請求金額</th>
-          <td class="order-details__price--content"><%= @order.total_payment = @sum + @order.shipping_cost %>円</td>
+          <td class="order-details__price--content"><%= number_to_currency(@order.total_payment = @sum + @order.shipping_cost) %></td>
         </tr>
       </table>
     </div>

@@ -25,7 +25,7 @@
             W : <%= cart_item.item.size_width %>cm
           </td>
           <td class="cart_item-list__price--content"><!--商品価格-->
-            ¥<%= cart_item.item.price %>
+            ¥<%= cart_item.item.price.to_s(:delimited) %>
           </td>
           <td class="cart_item-list__action--content"><!--カート内から削除-->
             <%= link_to "削除", cart_item_path(cart_item.id), method: :delete, class: "cart_item__action--btn" %>
