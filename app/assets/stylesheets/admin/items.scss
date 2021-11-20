@@ -12,6 +12,12 @@
     &--content {
       margin: 40px;
     }
+
+    &--content-image {
+      height: 300px;
+      width: 350px;
+      object-fit: cover;
+    }
   }
 }
 
@@ -20,6 +26,18 @@
 .item-details {
   margin: auto;
   display: flex;
+
+  &__item-image {
+    height: 400px;
+    width: 450px;
+    object-fit: cover;
+  }
+
+  &__mini-item-image {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+  }
 
   &__item {
     list-style: none;

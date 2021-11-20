@@ -15,7 +15,7 @@
         <tr>
           <td class="cart_item-list__name--content"><!--商品画像の一枚目を表示-->
             <% cart_item.item.item_images.first(1).each do |image| %>
-              <%= attachment_image_tag image, :image, size: "100x100" %>
+              <%= attachment_image_tag image, :image, class: "cart_item-list__item-image" %>
             <% end %>
             <!--商品名-->
             <%= cart_item.item.name %>

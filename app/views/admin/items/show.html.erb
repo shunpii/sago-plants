@@ -2,11 +2,11 @@
 <div class="item-details">
   <div>
     <div><!--選択した商品画像を表示-->
-      <%= attachment_image_tag @item.item_images[0], :image, size: "450x400", id: 'item-image' %>
+      <%= attachment_image_tag @item.item_images[0], :image, id: 'item-image', class: "item-details__item-image" %>
     </div>
     <div><!--商品画像の一覧-->
       <% @item.item_images.each do |image| %>
-        <a class="item-image-mini"><%= attachment_image_tag image, :image, size: "150x150" %></a>
+        <a class="item-image-mini"><%= attachment_image_tag image, :image, class: "item-details__mini-item-image" %></a>
       <% end %>
     </div>
   </div>

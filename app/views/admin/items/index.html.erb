@@ -6,14 +6,14 @@
         <%= link_to admin_item_path(item.id) do %>
           <div><!--商品画像の一枚目を表示-->
             <% item.item_images.first(1).each do |image| %>
-              <%= attachment_image_tag image, :image, size: "350x300" %>
+              <%= attachment_image_tag image, :image, class: "item-list__item--content-image" %>
             <% end %>
           </div>
         <% end %>
         <!--商品名の表示-->
         <div><%= item.name %></div>
         <!--商品価格の表示-->
-        <div><%= item.price.to_s(:delimited) %>円</div>
+        <div><%= number_to_currency(item.price) %></div>
       </div>
     <% end %>
   </div>

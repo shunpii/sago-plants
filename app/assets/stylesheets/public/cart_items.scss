@@ -5,6 +5,12 @@
 .cart_item-list {
   margin: auto;
 
+  &__item-image {
+    width: 100px;
+    height: 100px;
+    pbject-fit: cover;
+  }
+
   &__name {
     width: 500px;
     background-color: #eee;

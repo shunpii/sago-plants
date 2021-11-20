@@ -1,21 +1,21 @@
 <div class="top_page">
   <% @items.each do |item| %>
-    <%= link_to item_path(item.id) do %>
-      <div class="top_page--list">
+    <div class="top_page--list">
+      <%= link_to item_path(item.id) do %>
         <div>
           <% item.item_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, size: "550x500" %>
+            <%= attachment_image_tag image, :image, class: "top_page--list__item-image" %>
           <% end %>
         </div>
-        <div><%= item.name %></div>
-        <div>
-          <% if item.order_details.present? %>
-            Sold Out!!
-          <% else %>
-            <%= number_to_currency(item.price) %>
-          <% end %>
-        </div>
+      <% end %>
+      <div><%= item.name %></div>
+      <div>
+        <% if item.order_details.present? %>
+          Sold Out!!
+        <% else %>
+          <%= number_to_currency(item.price) %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   <% end %>
 </div>
