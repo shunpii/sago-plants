@@ -17,7 +17,9 @@
     <div class="product_details__content">
       <%= form_with model: @favorite, url: favorites_path, local:true do |f| %>
         <%= f.hidden_field :item_id, :value => @item.id %>
-        <%= f.submit "お気に入り" %>
+        <%= f.button :type => 'submit', class: "product_details__content--icon" do %>
+          <i class="far fa-star">お気に入り</i>
+        <% end %>
       <% end %>
     </div>
     <div class="product_details__content"><%= @item.introduction %></div>
@@ -29,7 +31,9 @@
         <%= number_to_currency(@item.price) %>
         <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.submit "カートに追加" %>
+          <%= f.button :type => 'submit', class: "product_details__content--icon" do %>
+            <i class="fas fa-shopping-cart">に追加</i>
+          <% end %>
         <% end %>
       <% end %>
     </div>
