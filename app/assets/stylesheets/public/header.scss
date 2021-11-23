@@ -1,0 +1,38 @@
+.header-item {
+  margin: 20px 50px;
+
+  &__icon {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+
+    &--list {
+      margin: 0 20px;
+      font-size: 25px;
+    }
+  }
+
+  &__image {
+    text-align: center;
+
+    &--item {
+      width: 500px;
+      height: 250px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    
+    &--title {
+      margin: auto;
+      font-size: 20px;
+    }
+  }
+  
+  &__action {
+    text-decoration: none;
+    color: #000;
+  }
+}
