@@ -15,10 +15,14 @@
     <div class="product_details__content"><%= @item.name %></div>
     <div class="product_details__content">H :<%= @item.size_height %>cm W :<%= @item.size_width %>cm</div>
     <div class="product_details__content">
-      <%= form_with model: @favorite, url: favorites_path, local:true do |f| %>
-        <%= f.hidden_field :item_id, :value => @item.id %>
-        <%= f.button :type => 'submit', class: "product_details__content--icon" do %>
-          <i class="far fa-star">お気に入り</i>
+      <% if @item.favorite.present? %>
+        <p>お気に入り済み</p>
+      <% else %>
+        <%= form_with model: @favorite, url: favorites_path, local:true do |f| %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <%= f.button :type => 'submit', class: "product_details__content--icon" do %>
+            <i class="far fa-star">お気に入り</i>
+          <% end %>
         <% end %>
       <% end %>
     </div>
