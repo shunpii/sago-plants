@@ -1,21 +1,25 @@
-.sign_up-title {
-  margin-left: 30%;
+.sign_up {
+
+  &__title {
+    margin-left: 30%;
+  }
+
+  &__list {
+    margin: auto;
+
+    &--item {
+      padding: 5px 10px 5px 5px;
+      text-align: left;
+    }
+  }
+
+  &__action {
+    text-align: center;
+    margin-right: 150px;
+
+    &--btn {
+      width: 100px;
+    }
+  }
 }
 
-.sign_up-list {
-  margin: auto;
-}
-
-.sign_up-item {
-  padding: 5px 10px 5px 5px;
-  text-align: left;
-}
-
-.sign_up-action {
-  text-align: center;
-  margin-right: 150px;
-}
-
-.sign_up-btn {
-  width: 100px;
-}
