@@ -1,29 +1,24 @@
-<div class="customer-login">
+<div class="login">
   <%= render "customers/shared/error_messages", resource: resource %>
-
-  <h3 class="customer-login-title">会員の方はこちら</h3>
-
+  <h3 class="login__title">会員の方はこちら</h3>
   <%= form_with model:@customer, url: customer_session_path, local: true do |f| %>
-    <table class="customer-login-list">
-      <tbody>
-        <tr>
-          <th class="customer-login-list-item">メールアドレス</th>
-          <td><%= f.email_field :email %></td>
-        </tr>
-        <tr>
-          <th class="customer-login-list-item">パスワード</th>
-          <td><%= f.password_field :password %></td>
-        </tr>
-      </tbody>
+    <table class="login__list">
+      <tr>
+        <th class="login__list--item">メールアドレス</th>
+        <td><%= f.email_field :email %></td>
+      </tr>
+      <tr>
+        <th class="login__list--item">パスワード</th>
+        <td><%= f.password_field :password %></td>
+      </tr>
     </table>
-    <div class="login-action">
-      <%= f.submit "ログイン", class: "login-btn" %>
+    <div class="login__action">
+      <%= f.submit "ログイン", class: "login__action--btn" %>
     </div>
   <% end %>
-
-  <h3 class="customer-login-title">会員でない方</h3>
-  <div class="login-action">
-    <%= link_to "こちら", new_customer_registration_path %>から新規会員登録をお願い致します
+  <h3 class="login__title">会員でない方</h3>
+  <div class="login__action">
+    <p><%= link_to "こちら", new_customer_registration_path %>から新規会員登録をお願い致します</p>
   </div>
 </div>
 

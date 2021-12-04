@@ -1,20 +1,23 @@
-.customer-login-list {
-  margin: auto;
-}
+.login {
 
-.customer-login-title {
-  margin-left: 35%;
-}
+  &__title {
+    margin-left: 35%;
+  }
 
-.customer-login-list-item, .login-actions {
-  padding: 10px 15px 10px 10px;
-  text-align: left;
-}
+  &__list {
+    margin: auto;
 
-.login-action {
-  text-align: center;
-}
+    &--item {
+      text-align: left;
+      padding: 10px 15px 10px 10px;
+    }
+  }
 
-.login-btn {
-  width: 100px;
+  &__action {
+    text-align: center;
+
+    &--btn {
+      width: 100px;
+    }
+  }
 }
