@@ -30,13 +30,17 @@
     <div class="product_details__content"><%= @item.shipping_method %></div>
     <div class="product_details__content">
       <% if @item.order_details.present? %>
-        Sold Out!!
+        <p><%= number_to_currency(@item.price) %> Sold Out!!</p>
       <% else %>
         <%= number_to_currency(@item.price) %>
         <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
-          <%= f.button :type => 'submit', class: "product_details__content--icon" do %>
-            <i class="fas fa-shopping-cart">に追加</i>
+          <% if @item.cart_items.present? %>
+            <i class="fas fa-shopping-cart">に追加済み</i>
+          <% else %>
+            <%= f.button :type => 'submit', class: "product_details__content--icon" do %>
+              <i class="fas fa-shopping-cart">に追加</i>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
