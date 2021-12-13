@@ -10,7 +10,7 @@
       <% end %>
       <div><%= item.name %></div>
       <div>
-        <% if item.order_details.present? %>
+        <% if item.order_details.present? %><!--売れていたらSold Outを表示-->
           <p><%= number_to_currency(item.price) %> Sold Out!!</p>
         <% else %>
           <%= number_to_currency(item.price) %>
